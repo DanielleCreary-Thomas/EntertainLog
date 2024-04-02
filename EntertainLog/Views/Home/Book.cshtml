@@ -1,0 +1,101 @@
+﻿@model EntertainLog.Models.ViewModel.BookViewModel;
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>
+            Books in your EntertainLog
+        </title>
+    </head>
+    <body>
+        <div>
+            <a class="rounded-pill" asp-action="Dashboard">Back</a> <h1>Books</h1>
+        </div>
+
+        <h3>Add a new Book</h3>
+        <form asp-action="Book" method="post">
+            <div asp-validation-summary="All"></div>
+            @*             <label asp-for="@Model.NewBook.BookID">The Book Number</label>
+            <input asp-for="@Model.NewBook.BookID" />
+            <br /> *@
+            <label asp-for="@Model.NewBook.Title">The Book Title</label>
+            <input asp-for="@Model.NewBook.Title" />
+            <br />
+            <label asp-for="@Model.NewBook.Author">The Book Author</label>
+            <input asp-for="@Model.NewBook.Author" />
+            <br />
+            <label asp-for="@Model.NewBook.Year">The Book Release Year</label>
+            <input asp-for="@Model.NewBook.Year" />
+            <br />
+            <label asp-for="@Model.NewBook.Genre">The Book Genre</label>
+            <input asp-for="@Model.NewBook.Genre" />
+            <br />
+            <label asp-for="@Model.NewBook.PageCount">The Book Page Count</label>
+            <input asp-for="@Model.NewBook.PageCount" />
+            <br />
+            <label asp-for="@Model.NewBook.Read">Already Read? </label>
+            <input type="checkbox" asp-for="@Model.NewBook.Read" />
+            <br />
+            <label asp-for="@Model.NewBook.Rating">The Book Rating</label>
+            <select asp-for="@Model.NewBook.Rating">
+                @for (int i = 1; i <= 5; i++)
+                {
+                    <option value="@i">@i</option>
+                }
+            </select>
+            <br />
+            <label asp-for="@Model.NewBook.Notes">Comments</label>
+            <textarea asp-for="@Model.NewBook.Notes" />
+            <br />
+            <input asp-for="@Model.NewBook.UserID" value="@Model.Curruser.UserID"/>
+            <button type="submit">Submit</button>
+
+        </form>
+        <br />
+        @* Need to check if there are books in the repo to display the table  *@
+        @if (Model.Books.Any())
+        {
+            <br />
+            <table class="table-bordered">
+                <thead>
+                    <tr>
+                        <td>Book Title</td>
+                        <td>Book Author</td>
+                        <td>Book Year</td>
+                        <td>Genre</td>
+                        <td>Page Count</td>
+                        <td>Read</td>
+                        <td>Rating</td>
+                    
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var book in Model.Books)
+                    {
+                        <tr>
+                            <td>@book.Title</td>
+                            <td>@book.Author</td>
+                            <td>@book.Year</td>
+                            <td>@book.Genre</td>
+                            <td>@book.PageCount</td>
+                            <td>@book.Read</td>
+                            <td>@book.Rating</td>
+                            <td>
+                                <form asp-action="Edit" asp-route-id="@book.BookID" method="post">
+                                    <button type="submit">View More</button>
+                                </form>
+                            </td>
+                            <td>
+                                <form asp-action="Delete" asp-route-id="@book.BookID" method="post">
+                                    <button type="submit">Delete</button>
+                                </form>
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+
+    </body>
+
+</html>
