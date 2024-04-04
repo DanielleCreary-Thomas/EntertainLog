@@ -14,39 +14,38 @@
         <h3>Edit @Model.CurrBook.Title</h3>
         <form asp-action="Book" method="post">
             <div asp-validation-summary="All"></div>
-            @*             <label asp-for="@Model.NewBook.BookID">The Book Number</label>
-            <input asp-for="@Model.NewBook.BookID" />
-            <br /> *@
-            <label asp-for="@Model.NewBook.Title">The Book Title</label>
-            <input asp-for="@Model.NewBook.Title" />
+            <input type="hidden" asp-for="@Model.CurrBook.BookID" value="@Model.CurrBook.BookID" />
             <br />
-            <label asp-for="@Model.NewBook.Author">The Book Author</label>
-            <input asp-for="@Model.NewBook.Author" />
+            <label asp-for="@Model.CurrBook.Title">The Book Title</label>
+            <input asp-for="@Model.CurrBook.Title" />
             <br />
-            <label asp-for="@Model.NewBook.Year">The Book Release Year</label>
-            <input asp-for="@Model.NewBook.Year" />
+            <label asp-for="@Model.CurrBook.Author">The Book Author</label>
+            <input asp-for="@Model.CurrBook.Author" />
             <br />
-            <label asp-for="@Model.NewBook.Genre">The Book Genre</label>
-            <input asp-for="@Model.NewBook.Genre" />
+            <label asp-for="@Model.CurrBook.Year">The Book Release Year</label>
+            <input asp-for="@Model.CurrBook.Year" />
             <br />
-            <label asp-for="@Model.NewBook.PageCount">The Book Page Count</label>
-            <input asp-for="@Model.NewBook.PageCount" />
+            <label asp-for="@Model.CurrBook.Genre">The Book Genre</label>
+            <input asp-for="@Model.CurrBook.Genre" />
             <br />
-            <label asp-for="@Model.NewBook.Read">Already Read? </label>
-            <input type="checkbox" asp-for="@Model.NewBook.Read" />
+            <label asp-for="@Model.CurrBook.PageCount">The Book Page Count</label>
+            <input asp-for="@Model.CurrBook.PageCount" />
             <br />
-            <label asp-for="@Model.NewBook.Rating">The Book Rating</label>
-            <select asp-for="@Model.NewBook.Rating">
+            <label asp-for="@Model.CurrBook.Read">Already Read? </label>
+            <input type="checkbox" asp-for="@Model.CurrBook.Read" />
+            <br />
+            <label asp-for="@Model.CurrBook.Rating">The Book Rating</label>
+            <select asp-for="@Model.CurrBook.Rating">
                 @for (int i = 1; i <= 5; i++)
                 {
                     <option value="@i">@i</option>
                 }
             </select>
             <br />
-            <label asp-for="@Model.NewBook.Notes">Comments</label>
-            <textarea asp-for="@Model.NewBook.Notes" />
+            <label asp-for="@Model.CurrBook.Notes">Comments</label>
+            <textarea asp-for="@Model.CurrBook.Notes" />
             <br />
-            <input asp-for="@Model.NewBook.UserID" value="@Model.Curruser.UserID" />
+            <input asp-for="@Model.CurrBook.UserID" value="@Model.CurrUser.UserID" />
             <button type="submit">Submit</button>
 
         </form>

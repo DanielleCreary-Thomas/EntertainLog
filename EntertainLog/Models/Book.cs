@@ -14,10 +14,6 @@ namespace EntertainLog.Models
         public String? Author { get; set; }
         public long? PageCount { get; set; }
 
-        public Boolean Read
-            {
-            get { return base.IsConsumed; }
-            set { base.IsConsumed = value; }
-            }
+        public Boolean Read { get; set; } = false;
     }
 }

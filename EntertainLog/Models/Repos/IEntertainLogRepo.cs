@@ -14,19 +14,21 @@
         TVShow AddTVShow(TVShow movie);
 
         Task<Movie?> GetMovieByIDAsync(long id);
-        Task<Music?> GetMusicByIdAsync(long id);
-        Task<Book?> GetBookByIdAsync(long id);
-        Task<TVShow?> GetTVShowByIdAsync(long id);
+        Task<Music?> GetMusicByIDAsync(long id);
+        Task<Book?> GetBookByIDAsync(long id);
+        Task<TVShow?> GetTVShowByIDAsync(long id);
+        Task<User?> GetUserByIDAsync(long id);
+
 
         Movie UpdateMovie(Movie movie);
         Music UpdateMusic(Music music);
         Book UpdateBook(Book book);
         TVShow UpdateTVShow(TVShow movie);
 
-        void DeleteMovie(long id);
-        void DeleteMusic(long id);
-        void DeleteBook(long id);
-        void DeleteTVShow(long id);
+        void DeleteMovie(Movie movie);
+        void DeleteMusic(Music music);
+        void DeleteBook(Book book);
+        void DeleteTVShow(TVShow tvshow);
 
     }
 }

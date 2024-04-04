@@ -19,35 +19,82 @@ namespace EntertainLog.WebControllers
         [HttpPost]
         public async Task<ActionResult<Book>> Post([FromBody] Book book)
         {
-            throw new NotImplementedException();
+            var duplicatedBook = await _entertainLogRepo.GetBookByIDAsync(book.BookID);
+
+            if (duplicatedBook == null)//new book
+            {
+                if (book.UserID != null)//validate userID with existing users
+                {
+                    var validatedUser = await _entertainLogRepo.GetUserByIDAsync((long)book.UserID);
+                    if(validatedUser != null)
+                    {
+                        book.UserID = validatedUser.UserID;
+                        return _entertainLogRepo.AddBook(book);
+                    }
+                    return StatusCode(500, "An error occurred while processing your request: User not Found.");
+                }
+                return StatusCode(500, "An error occurred while processing your request: User not Provided.");
+            }
+            else//duplicate
+            {
+                return StatusCode(500, "An error occurred while processing your request: Duplicate Book.");
+            }
         }
         //Read
         [HttpGet]
-        public async IAsyncEnumerable<Book> Get()
+        public IEnumerable<Book> Get()
         {
-            yield break;
-
-            throw new NotImplementedException();
+            return _entertainLogRepo.Books;
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Book>> Get(long id)
         {
-            throw new NotImplementedException();
+            var book = await _entertainLogRepo.GetBookByIDAsync(id);
+
+            return (book == null) ? NotFound() : book;
         }
 
         //Update
         [HttpPut]
-        public async Task<ActionResult<Book>> Put(long id)
+        public async Task<ActionResult<Book>> Put(Book book)
         {
-            throw new NotImplementedException();
+            var validatedBook = await _entertainLogRepo.GetBookByIDAsync(book.BookID);
+
+            if (validatedBook != null)//new book
+            {
+                if (book.UserID != null)//validate routeID with existing routes
+                {
+                    var validatedUser = await _entertainLogRepo.GetUserByIDAsync((long)book.UserID);
+                    if (validatedUser != null)
+                    {
+                        book.UserID = validatedUser.UserID;
+                        return _entertainLogRepo.AddBook(book);
+                    }
+                    return StatusCode(500, "An error occurred while processing your request: User not Found.");
+                }
+                return StatusCode(500, "An error occurred while processing your request: User not Provided.");
+            }
+            else//validated
+            {
+                return StatusCode(500, "An error occurred while processing your request: Book not Found.");
+            }
         }
 
         //Delete
         [HttpDelete]
         public async Task<ActionResult<Book>> Delete(long id)
         {
-            throw new NotImplementedException();
+            var validatedBook = await _entertainLogRepo.GetBookByIDAsync(id);
+            if (validatedBook != null)
+            {
+                _entertainLogRepo.DeleteBook(validatedBook);
+                return Ok();
+            }
+            else//truck not in db
+            {
+                return NotFound(id);
+            }
         }
     }
 }

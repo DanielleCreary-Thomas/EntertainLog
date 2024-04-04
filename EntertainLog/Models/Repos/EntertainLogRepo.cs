@@ -24,7 +24,9 @@ namespace EntertainLog.Models.Repos
         //Create
         public Book AddBook(Book book)
         {
-            throw new NotImplementedException();
+            _dbContext.BooksSet.Add(book);
+            _dbContext.SaveChanges();
+            return book;
         }
 
         public Movie AddMovie(Movie movie)
@@ -34,9 +36,11 @@ namespace EntertainLog.Models.Repos
 
         public Music AddMusic(Music music)
         {
-            throw new NotImplementedException();
+            _dbContext.MusicSet.Add(music);
+            _dbContext.SaveChanges();
+            return music;
         }
-
+    
         public TVShow AddTVShow(TVShow movie)
         {
             throw new NotImplementedException();
@@ -48,30 +52,32 @@ namespace EntertainLog.Models.Repos
         }
 
         //Delete
-        public void DeleteBook(long id)
+        public void DeleteBook(Book book)
+        {
+            _dbContext.BooksSet.Remove(book);
+            _dbContext.SaveChanges();
+        }
+
+        public void DeleteMovie(Movie movie)
         {
             throw new NotImplementedException();
         }
 
-        public void DeleteMovie(long id)
+        public void DeleteMusic(Music music)
         {
-            throw new NotImplementedException();
+            _dbContext.MusicSet.Remove(music);
+            _dbContext.SaveChanges();
         }
 
-        public void DeleteMusic(long id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteTVShow(long id)
+        public void DeleteTVShow(TVShow tvshow)
         {
             throw new NotImplementedException();
         }
 
         //Get{id}
-        public Task<Book?> GetBookByIdAsync(long id)
+        public async Task<Book?> GetBookByIDAsync(long id)
         {
-            throw new NotImplementedException();
+            return await _dbContext.BooksSet.FindAsync(id);
         }
 
         public Task<Movie?> GetMovieByIDAsync(long id)
@@ -79,12 +85,17 @@ namespace EntertainLog.Models.Repos
             throw new NotImplementedException();
         }
 
-        public Task<Music?> GetMusicByIdAsync(long id)
+        public async Task<Music?> GetMusicByIDAsync(long id)
+        {
+            return await _dbContext.MusicSet.FindAsync(id);
+        }
+
+        public Task<TVShow?> GetTVShowByIDAsync(long id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<TVShow?> GetTVShowByIdAsync(long id)
+        public Task<User?> GetUserByIDAsync(long id)
         {
             throw new NotImplementedException();
         }
@@ -92,7 +103,9 @@ namespace EntertainLog.Models.Repos
         //Update
         public Book UpdateBook(Book book)
         {
-            throw new NotImplementedException();
+            _dbContext.BooksSet.Update(book);
+            _dbContext.SaveChanges();
+            return book;
         }
 
         public Movie UpdateMovie(Movie movie)
@@ -102,7 +115,9 @@ namespace EntertainLog.Models.Repos
 
         public Music UpdateMusic(Music music)
         {
-            throw new NotImplementedException();
+            _dbContext.MusicSet.Update(music);
+            _dbContext.SaveChanges();
+            return music;
         }
 
         public TVShow UpdateTVShow(TVShow movie)
