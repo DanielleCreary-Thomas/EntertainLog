@@ -1,5 +1,6 @@
 ﻿
 using EntertainLog.Models.Database;
+using Microsoft.EntityFrameworkCore;
 
 namespace EntertainLog.Models.Repos
 {
@@ -31,7 +32,9 @@ namespace EntertainLog.Models.Repos
 
         public Movie AddMovie(Movie movie)
         {
-            throw new NotImplementedException();
+            _dbContext.MoviesSet.Add(movie);
+            _dbContext.SaveChanges();
+            return movie;
         }
 
         public Music AddMusic(Music music)
@@ -48,7 +51,9 @@ namespace EntertainLog.Models.Repos
 
         public void AddUser(User user)
         {
-            throw new NotImplementedException();
+            _dbContext.UsersSet.Add(user);
+            _dbContext.SaveChanges();
+            
         }
 
         //Delete
@@ -60,7 +65,8 @@ namespace EntertainLog.Models.Repos
 
         public void DeleteMovie(Movie movie)
         {
-            throw new NotImplementedException();
+            _dbContext.MoviesSet.Remove(movie);
+            _dbContext.SaveChanges();
         }
 
         public void DeleteMusic(Music music)
@@ -80,9 +86,9 @@ namespace EntertainLog.Models.Repos
             return await _dbContext.BooksSet.FindAsync(id);
         }
 
-        public Task<Movie?> GetMovieByIDAsync(long id)
+        public async Task<Movie?> GetMovieByIDAsync(long id)
         {
-            throw new NotImplementedException();
+            return await _dbContext.MoviesSet.FindAsync(id);
         }
 
         public async Task<Music?> GetMusicByIDAsync(long id)
@@ -95,9 +101,9 @@ namespace EntertainLog.Models.Repos
             throw new NotImplementedException();
         }
 
-        public Task<User?> GetUserByIDAsync(long id)
+        public async Task<User?> GetUserByIDAsync(long id)
         {
-            throw new NotImplementedException();
+            return await _dbContext.UsersSet.FindAsync(id);
         }
 
         //Update
@@ -110,7 +116,9 @@ namespace EntertainLog.Models.Repos
 
         public Movie UpdateMovie(Movie movie)
         {
-            throw new NotImplementedException();
+            _dbContext.MoviesSet.Update(movie);
+            _dbContext.SaveChanges();
+            return movie;
         }
 
         public Music UpdateMusic(Music music)

@@ -1,5 +1,101 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model EntertainLog.Models.ViewModel.MovieViewModel;
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>
+        Movies in your EntertainLog
+    </title>
+</head>
+<body>
+    <div>
+        <a class="rounded-pill" asp-action="Dashboard">Back</a> <h1>Books</h1>
+    </div>
+
+    <h3>Add a new Movie</h3>
+    <form asp-action="Book" method="post">
+        <div asp-validation-summary="All"></div>
+        @*             <label asp-for="@Model.NewBook.BookID">The Book Number</label>
+        <input asp-for="@Model.NewMovie.MovieID" />
+        <br /> *@
+        <label asp-for="@Model.NewMovie.Title">The Movie Title</label>
+        <input asp-for="@Model.NewMovie.Title" />
+        <br />
+        <label asp-for="@Model.NewMovie.Director">The Movie Director</label>
+        <input asp-for="@Model.NewMovie.Director" />
+        <br />
+        <label asp-for="@Model.NewMovie.Year">The Movie Release Year</label>
+        <input asp-for="@Model.NewMovie.Year" />
+        <br />
+        <label asp-for="@Model.NewMovie.Genre">The Movie Genre</label>
+        <input asp-for="@Model.NewMovie.Genre" />
+        <br />
+        <label asp-for="@Model.NewMovie.Runtime">The Runtime</label>
+        <input asp-for="@Model.NewMovie.Runtime" />
+        <br />
+        <label asp-for="@Model.NewMovie.Watched">Already Watched? </label>
+        <input type="checkbox" asp-for="@Model.NewMovie.Watched" />
+        <br />
+        <label asp-for="@Model.NewMovie.Rating">The Movie Rating</label>
+        <select asp-for="@Model.NewMovie.Rating">
+            @for (int i = 1; i <= 5; i++)
+            {
+                <option value="@i">@i</option>
+            }
+        </select>
+        <br />
+        <label asp-for="@Model.NewMovie.Notes">Comments</label>
+        <textarea asp-for="@Model.NewMovie.Notes" />
+        <br />
+        <input asp-for="@Model.NewMovie.UserID" value="@Model.CurrUser.UserID" />
+        <button type="submit">Submit</button>
+
+    </form>
+    <br />
+    @* Need to check if there are Movies in the repo to display the table  *@
+    @if (Model.Movies.Any())
+    {
+        <br />
+        <table class="table-bordered">
+            <thead>
+                <tr>
+                    <td>Movie Title</td>
+                    <td>Movie Director</td>
+                    <td>Movie Year</td>
+                    <td>Genre</td>
+                    <td>Runtime</td>
+                    <td>Watched</td>
+                    <td>Rating</td>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var movie in Model.Movies)
+                {
+                    <tr>
+                        <td>@movie.Title</td>
+                        <td>@movie.Director</td>
+                        <td>@movie.Year</td>
+                        <td>@movie.Genre</td>
+                        <td>@movie.Runtime</td>
+                        <td>@movie.Watched</td>
+                        <td>@movie.Rating</td>
+                        <td>
+                            <form asp-action="Edit" asp-route-id="@movie.MovieID" method="post">
+                                <button type="submit">View More</button>
+                            </form>
+                        </td>
+                        <td>
+                            <form asp-action="Delete" asp-route-id="@movie.MovieID" method="post">
+                                <button type="submit">Delete</button>
+                            </form>
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+</body>
+
+</html>
