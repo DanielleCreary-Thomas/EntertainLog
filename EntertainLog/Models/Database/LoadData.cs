@@ -133,6 +133,69 @@ namespace EntertainLog.Models.Database
             {
                 context.TVShowsSet.AddRange(
                     //Add TV Shows here
+                    new TVShow
+                    {
+                        Title = "The Walking Dead",
+                        Creator = "Frank Darabont",
+                        Year = "2010",
+                        Genre = "Zombie",
+                        Seasons = 11,
+                        Watched = true,
+                        Favourited= true,
+                        Rating= 5,
+                        Notes = "Car OL",
+                        UserID = 5
+                    },
+                    new TVShow
+                    {
+                        Title = "Game of Thrones",
+                        Creator = "David Benioff, D. B. Weiss",
+                        Year = "2011",
+                        Genre = "Fantasy",
+                        Seasons = 8,
+                        Watched = true,
+                        Rating = 4,
+                        Notes = "Winter is Coming",
+                        UserID = 5
+                    },
+                    new TVShow
+                    {
+                    Title = "The Office",
+                    Creator = "Greg Daniels",
+                    Year = "2005",
+                    Genre = "Comedy",
+                    Seasons = 9,
+                    Watched = true,
+                    Rating = 5,
+                    Notes = "Dunder Mifflin",
+                    UserID = 2
+                    },
+                    new TVShow
+                    {
+                        Title = "Sherlock",
+                        Creator = "Mark Gatiss, Steven Moffat",
+                        Year = "2010",
+                        Genre = "Crime",
+                        Seasons = 4,
+                        Watched = true,
+                        Rating = 5,
+                        Notes = "Modern adaptation of Sherlock Holmes",
+                        UserID = 4
+                    },
+                    new TVShow
+                    {
+                        Title = "Scandal",
+                        Creator = "Shonda Rhimes",
+                        Year = "2012",
+                        Genre = "Political",
+                        Seasons = 7,
+                        Watched = true,
+                        Favourited = true,
+                        Rating = 5,
+                        Notes = "Mr.President",
+                        UserID = 5
+                    }
+
                     );
                 context.SaveChanges();
 

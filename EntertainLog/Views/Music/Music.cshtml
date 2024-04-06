@@ -38,6 +38,12 @@
         <label asp-for="@Model.NewMusic.Listened">Already Listened? </label>
         <input type="checkbox" asp-for="@Model.NewMusic.Listened" />
         <br />
+        <label asp-for="@Model.NewMusic.Favourited">Favourite? </label>
+        <input type="checkbox" asp-for="@Model.NewMusic.Favourited" />
+        <br />
+        <label asp-for="@Model.NewMusic.Queued">Queue to Listen to Next? </label>
+        <input type="checkbox" asp-for="@Model.NewMusic.Queued" />
+        <br />
         <label asp-for="@Model.NewMusic.Rating">The Music Rating</label>
         <select asp-for="@Model.NewMusic.Rating">
             @for (int i = 1; i <= 5; i++)
@@ -67,7 +73,11 @@
                     <td>Genre</td>
                     <td>Runtime</td>
                     <td>Listened</td>
+                    <td>Favourited</td>
+                    <td>Queued</td>
                     <td>Rating</td>
+                    <td>Edit</td>
+                    <td>Delete</td>
 
                 </tr>
             </thead>
@@ -81,6 +91,8 @@
                         <td>@music.Genre</td>
                         <td>@music.Runtime</td>
                         <td>@music.Listened</td>
+                        <td>@music.Favourited</td>
+                        <td>@music.Queued</td>
                         <td>@music.Rating</td>
                         <td>
                             <form asp-action="Edit" asp-route-id="@music.MusicID" method="post">

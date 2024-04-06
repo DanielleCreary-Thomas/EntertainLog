@@ -44,9 +44,11 @@ namespace EntertainLog.Models.Repos
             return music;
         }
     
-        public TVShow AddTVShow(TVShow movie)
+        public TVShow AddTVShow(TVShow tvshow)
         {
-            throw new NotImplementedException();
+            _dbContext.TVShowsSet.Add(tvshow);
+            _dbContext.SaveChanges();
+            return tvshow;
         }
 
         public void AddUser(User user)
@@ -77,7 +79,9 @@ namespace EntertainLog.Models.Repos
 
         public void DeleteTVShow(TVShow tvshow)
         {
-            throw new NotImplementedException();
+            _dbContext.TVShowsSet.Remove(tvshow);
+            _dbContext.SaveChanges();
+
         }
 
         //Get{id}
@@ -96,9 +100,9 @@ namespace EntertainLog.Models.Repos
             return await _dbContext.MusicSet.FindAsync(id);
         }
 
-        public Task<TVShow?> GetTVShowByIDAsync(long id)
+        public async Task<TVShow?> GetTVShowByIDAsync(long id)
         {
-            throw new NotImplementedException();
+            return await _dbContext.TVShowsSet.FindAsync(id);
         }
 
         public async Task<User?> GetUserByIDAsync(long id)
@@ -128,9 +132,11 @@ namespace EntertainLog.Models.Repos
             return music;
         }
 
-        public TVShow UpdateTVShow(TVShow movie)
+        public TVShow UpdateTVShow(TVShow tvshow)
         {
-            throw new NotImplementedException();
+            _dbContext.TVShowsSet.Update(tvshow);
+            _dbContext.SaveChanges();
+            return tvshow;
         }
     }
 }

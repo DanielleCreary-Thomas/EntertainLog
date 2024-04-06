@@ -1,5 +1,112 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model EntertainLog.Models.ViewModel.TVShowViewModel;
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>
+            TV Shows in your EntertainLog
+        </title>
+    </head>
+    <body>
+        <div>
+            <a class="rounded-pill" asp-action="Dashboard">Back</a> <h1>TV Shows</h1>
+        </div>
+
+        <h3>Add a new TV Show</h3>
+        <form asp-action="TVShow" method="post">
+            <div asp-validation-summary="All"></div>
+            @*             <label asp-for="@Model.NewTVShow.TVShowID">The TVShow Number</label>
+            <input asp-for="@Model.NewTVShow.TVShowID" />
+            <br /> *@
+            <label asp-for="@Model.NewTVShow.Title">The TV Show Title</label>
+            <input asp-for="@Model.NewTVShow.Title" />
+            <br />
+            <label asp-for="@Model.NewTVShow.Creator">The TV Show Creator</label>
+            <input asp-for="@Model.NewTVShow.Creator" />
+            <br />
+            <label asp-for="@Model.NewTVShow.Year">The TV Show Release Year</label>
+            <input asp-for="@Model.NewTVShow.Year" />
+            <br />
+            <label asp-for="@Model.NewTVShow.Genre">The TV Show Genre</label>
+            <input asp-for="@Model.NewTVShow.Genre" />
+            <br />
+            <label asp-for="@Model.NewTVShow.Seasons">The Number of Seasons</label>
+            <input asp-for="@Model.NewTVShow.Seasons" />
+            <br />
+            <label asp-for="@Model.NewTVShow.Watched">Already Watched? </label>
+            <input type="checkbox" asp-for="@Model.NewTVShow.Watched" />
+            <br />
+            <label asp-for="@Model.NewTVShow.Favourited">Favourite? </label>
+            <input type="checkbox" asp-for="@Model.NewTVShow.Favourited" />
+            <br />
+            <label asp-for="@Model.NewTVShow.Queued">Queue to Watch Next? </label>
+            <input type="checkbox" asp-for="@Model.NewTVShow.Queued" />
+            <br />
+            <label asp-for="@Model.NewTVShow.Rating">The TV Show Rating</label>
+            <select asp-for="@Model.NewTVShow.Rating">
+                @for (int i = 1; i <= 5; i++)
+                {
+                    <option value="@i">@i</option>
+                }
+            </select>
+            <br />
+            <label asp-for="@Model.NewTVShow.Notes">Comments</label>
+            <textarea asp-for="@Model.NewTVShow.Notes" />
+            <br />
+            <input asp-for="@Model.NewTVShow.UserID" value="@Model.CurrUser.UserID"/>
+            <button type="submit">Submit</button>
+
+        </form>
+        <br />
+        @* Need to check if there are books in the repo to display the table  *@
+        @if (Model.TVShows.Any())
+        {
+            <br />
+            <table class="table-bordered">
+                <thead>
+                    <tr>
+                        <td>TV Show Title</td>
+                        <td>TV Show Creator</td>
+                        <td>TV Show Year</td>
+                        <td>Genre</td>
+                        <td>Seasons</td>
+                        <td>Watched</td>
+                        <td>Favourited</td>
+                        <td>Queued</td>
+                        <td>Rating</td>
+                        <td>Edit</td>
+                        <td>Delete</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var tvshow in Model.TVShows)
+                    {
+                        <tr>
+                            <td>@tvshow.Title</td>
+                            <td>@tvshow.Creator</td>
+                            <td>@tvshow.Year</td>
+                            <td>@tvshow.Genre</td>
+                            <td>@tvshow.Seasons</td>
+                            <td>@tvshow.Watched</td>
+                            <td>@tvshow.Favourited</td>
+                            <td>@tvshow.Queued</td>
+                            <td>@tvshow.Rating</td>
+                            <td>
+                                <form asp-action="Edit" asp-route-id="@tvshow.TVShowID" method="post">
+                                    <button type="submit">View More</button>
+                                </form>
+                            </td>
+                            <td>
+                                <form asp-action="Delete" asp-route-id="@tvshow.TVShowID" method="post">
+                                    <button type="submit">Delete</button>
+                                </form>
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+
+    </body>
+
+</html>

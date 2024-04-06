@@ -91,7 +91,7 @@ namespace EntertainLog.WebControllers
                 _entertainLogRepo.DeleteBook(validatedBook);
                 return Ok();
             }
-            else//truck not in db
+            else//book not in db
             {
                 return NotFound(id);
             }

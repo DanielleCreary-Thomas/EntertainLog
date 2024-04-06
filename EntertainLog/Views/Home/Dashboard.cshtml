@@ -1,5 +1,377 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿
+@model EntertainLog.Models.ViewModel.DashboardViewModel
 @{
+    Layout = "_Layout";
+
 }
+
+<html>
+    <head>
+        <title>
+            EntertainLog
+        </title>
+    </head>
+    <body>
+        <div>
+            <h3>Welcome, @Model.CurrUser.UserName to your EntertainLog</h3>
+        </div>
+        <sub>@Model.CurrUser.Email</sub><br /><br />
+
+        @*
+            If someone tries to access this page without logging it, return to the login page. 
+            • If the truck and route repositories already have data then the Dashboard should 
+            show the data as well.
+        *@
+        <a asp-action="Book"><h5>Books</h5></a>
+        <h5><a asp-action="Movie">Movies</a></h5>
+        <a asp-action="TVShow"><h5>TV Shows</h5></a>
+        <a asp-action="Music"><h5>Music</h5></a>
+
+
+
+        @* //TBR/W *@
+        <h2> Your Queues</h2>
+        <hr />
+        <h3>Books</h3>
+        @if (Model.BooksQueue.Any())
+        {
+            <br />
+            <table class="table-bordered">
+                <thead>
+                    <tr>
+                        <td>Book Title</td>
+                        <td>Book Author</td>
+                        <td>Book Year</td>
+                        <td>Genre</td>
+                        <td>Page Count</td>
+                        <td>Read</td>
+                        <td>Favourited</td>
+                        <td>Queued</td>
+                        <td>Rating</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var book in Model.BooksQueue)
+                    {
+                        <tr>
+                            <td>@book.Title</td>
+                            <td>@book.Author</td>
+                            <td>@book.Year</td>
+                            <td>@book.Genre</td>
+                            <td>@book.PageCount</td>
+                            <td>@book.Read</td>
+                            <td>@book.Favourited</td>
+                            <td>@book.Queued</td>
+                            <td>@book.Rating</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <h4>Find something to Read!</h4>
+        }
+
+        <br />
+        <h3>Movies</h3>
+        @if (Model.MoviesQueue.Any())
+        {
+            <br />
+            <table class="table-bordered">
+                <thead>
+                    <tr>
+                        <td>Movie Title</td>
+                        <td>Movie Director</td>
+                        <td>Movie Year</td>
+                        <td>Genre</td>
+                        <td>Runtime</td>
+                        <td>Watched</td>
+                        <td>Favourited</td>
+                        <td>Queued</td>
+                        <td>Rating</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var movie in Model.MoviesQueue)
+                    {
+                        <tr>
+                            <td>@movie.Title</td>
+                            <td>@movie.Director</td>
+                            <td>@movie.Year</td>
+                            <td>@movie.Genre</td>
+                            <td>@movie.Runtime</td>
+                            <td>@movie.Watched</td>
+                            <td>@movie.Favourited</td>
+                            <td>@movie.Queued</td>
+                            <td>@movie.Rating</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <h4>Find something to Watch!</h4>
+        }
+
+        <br />
+        <h3>TV Shows</h3>
+        @if (Model.TVShowsQueue.Any())
+        {
+            <br />
+            <table class="table-bordered">
+                <thead>
+                    <tr>
+                        <td>TV Show Title</td>
+                        <td>TV Show Creator</td>
+                        <td>TV Show Year</td>
+                        <td>Genre</td>
+                        <td>Seasons</td>
+                        <td>Watched</td>
+                        <td>Favourited</td>
+                        <td>Queued</td>
+                        <td>Rating</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var tvshow in Model.TVShowsQueue)
+                    {
+                        <tr>
+                            <td>@tvshow.Title</td>
+                            <td>@tvshow.Creator</td>
+                            <td>@tvshow.Year</td>
+                            <td>@tvshow.Genre</td>
+                            <td>@tvshow.Seasons</td>
+                            <td>@tvshow.Watched</td>
+                            <td>@tvshow.Favourited</td>
+                            <td>@tvshow.Queued</td>
+                            <td>@tvshow.Rating</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <h4>Find something to Watch!</h4>
+        }
+
+        <br />
+        <h3>Music</h3>
+         @if (Model.MusicsQueue.Any())
+        {
+            <br />
+            <table class="table-bordered">
+                <thead>
+                    <tr>
+                        <td>Music Title</td>
+                        <td>Music Artist</td>
+                        <td>Release Year</td>
+                        <td>Genre</td>
+                        <td>Runtime</td>
+                        <td>Listened</td>
+                        <td>Favourited</td>
+                        <td>Queued</td>
+                        <td>Rating</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var music in Model.MusicsQueue)
+                    {
+                        <tr>
+                            <td>@music.Title</td>
+                            <td>@music.Artist</td>
+                            <td>@music.Year</td>
+                            <td>@music.Genre</td>
+                            <td>@music.Runtime</td>
+                            <td>@music.Listened</td>
+                            <td>@music.Favourited</td>
+                            <td>@music.Queued</td>
+                            <td>@music.Rating</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <h4>Find something to listen to!</h4>
+        }
+        <br />
+        <br />
+
+        @* //Favourites *@
+        <h2> Your Favourites</h2>
+        <hr />
+        <h3>Books</h3>
+        @if (Model.BooksFaves.Any())
+        {
+            <br />
+            <table class="table-bordered">
+                <thead>
+                    <tr>
+                        <td>Book Title</td>
+                        <td>Book Author</td>
+                        <td>Book Year</td>
+                        <td>Genre</td>
+                        <td>Page Count</td>
+                        <td>Read</td>
+                        <td>Favourited</td>
+                        <td>Queued</td>
+                        <td>Rating</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var book in Model.BooksFaves)
+                    {
+                        <tr>
+                            <td>@book.Title</td>
+                            <td>@book.Author</td>
+                            <td>@book.Year</td>
+                            <td>@book.Genre</td>
+                            <td>@book.PageCount</td>
+                            <td>@book.Read</td>
+                            <td>@book.Favourited</td>
+                            <td>@book.Queued</td>
+                            <td>@book.Rating</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <h4>No Books Favourited!</h4>
+        }
+
+        <br />
+        <h3>Movies</h3>
+    @if (Model.MoviesFaves.Any())
+        {
+            <br />
+            <table class="table-bordered">
+                <thead>
+                    <tr>
+                        <td>Movie Title</td>
+                        <td>Movie Director</td>
+                        <td>Movie Year</td>
+                        <td>Genre</td>
+                        <td>Runtime</td>
+                        <td>Watched</td>
+                        <td>Favourited</td>
+                        <td>Queued</td>
+                        <td>Rating</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var movie in Model.MoviesFaves)
+                    {
+                        <tr>
+                            <td>@movie.Title</td>
+                            <td>@movie.Director</td>
+                            <td>@movie.Year</td>
+                            <td>@movie.Genre</td>
+                            <td>@movie.Runtime</td>
+                            <td>@movie.Watched</td>
+                            <td>@movie.Favourited</td>
+                            <td>@movie.Queued</td>
+                            <td>@movie.Rating</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <h4>No Movie Favourites!</h4>
+        }
+
+        <br />
+        <h3>TV Shows</h3>
+        @if (Model.TVShowsFaves.Any())
+        {
+            <br />
+            <table class="table-bordered">
+                <thead>
+                    <tr>
+                        <td>TV Show Title</td>
+                        <td>TV Show Creator</td>
+                        <td>TV Show Year</td>
+                        <td>Genre</td>
+                        <td>Seasons</td>
+                        <td>Watched</td>
+                        <td>Favourited</td>
+                        <td>Queued</td>
+                        <td>Rating</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var tvshow in Model.TVShowsFaves)
+                    {
+                        <tr>
+                            <td>@tvshow.Title</td>
+                            <td>@tvshow.Creator</td>
+                            <td>@tvshow.Year</td>
+                            <td>@tvshow.Genre</td>
+                            <td>@tvshow.Seasons</td>
+                            <td>@tvshow.Watched</td>
+                            <td>@tvshow.Favourited</td>
+                            <td>@tvshow.Queued</td>
+                            <td>@tvshow.Rating</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <h4>No TV Show Favourites!</h4>
+        }
+
+        <br />
+        <h3>Music</h3>
+         @if (Model.MusicsFaves.Any())
+        {
+            <br />
+            <table class="table-bordered">
+                <thead>
+                    <tr>
+                        <td>Music Title</td>
+                        <td>Music Artist</td>
+                        <td>Release Year</td>
+                        <td>Genre</td>
+                        <td>Runtime</td>
+                        <td>Listened</td>
+                        <td>Favourited</td>
+                        <td>Queued</td>
+                        <td>Rating</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var music in Model.MusicsFaves)
+                    {
+                        <tr>
+                            <td>@music.Title</td>
+                            <td>@music.Artist</td>
+                            <td>@music.Year</td>
+                            <td>@music.Genre</td>
+                            <td>@music.Runtime</td>
+                            <td>@music.Listened</td>
+                            <td>@music.Favourited</td>
+                            <td>@music.Queued</td>
+                            <td>@music.Rating</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <h4>No Music Favourites!</h4>
+        }
+        <br />
+        <br />
+
+    </body>
+</html>

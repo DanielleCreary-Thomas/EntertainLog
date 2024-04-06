@@ -7,6 +7,8 @@
         IQueryable<Music> Musics { get; }
         IQueryable<Book> Books { get; }
 
+        IQueryable<TVShow> TVShows { get; }
+
         void AddUser(User user);
         Movie AddMovie(Movie movie);
         Music AddMusic(Music music);
