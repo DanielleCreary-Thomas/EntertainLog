@@ -17,6 +17,11 @@ namespace EntertainLog.Models
         public String? Genre { get; set; }
 
         public int? Rating { get; set; }
+
+        public Boolean Favourited { get; set; } = false;
+
+        public Boolean Queued { get; set; } = false;
+
         public String? Notes { get; set; }
 
         [ForeignKey("UserID")]

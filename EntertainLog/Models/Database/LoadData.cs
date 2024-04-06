@@ -65,6 +65,7 @@ namespace EntertainLog.Models.Database
                         Runtime = "3:39",
                         Album = "Brand New Eyes",
                         Listened = true,
+                        Favourited = true,
                         Rating = 5,
                         Notes = "Best Song Ever",
                         UserID = 5
@@ -117,6 +118,7 @@ namespace EntertainLog.Models.Database
                         Runtime = "3:16",
                         Album = "One, Two",
                         Listened = true,
+                        Favourited = true,
                         Rating = 5,
                         Notes = "Classic reggae anthem with infectious rhythm.",
                         UserID = 5 // Example user ID
@@ -147,6 +149,7 @@ namespace EntertainLog.Models.Database
                         Genre = "Science Fiction",
                         PageCount = 248,
                         Read = true,
+                        Favourited = true,
                         Rating = 5,
                         Notes = "Thought-provoking exploration of humanity and alien culture.",
                         UserID = 1 // Example user ID
@@ -159,6 +162,7 @@ namespace EntertainLog.Models.Database
                         Genre = "Fantasy",
                         PageCount = 512,
                         Read = true,
+                        Favourited = true,
                         Rating = 5,
                         Notes = "Best Book Ever",
                         UserID = 5
@@ -183,6 +187,7 @@ namespace EntertainLog.Models.Database
                         Genre = "Fantasy",
                         PageCount = 544,
                         Read = false,
+                        Queued = true,
                         Notes = "Epic fantasy with intense action and rich world-building.",
                         UserID = 3 // Example user ID
                     },
