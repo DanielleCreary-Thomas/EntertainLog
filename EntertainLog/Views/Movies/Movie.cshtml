@@ -12,11 +12,10 @@
     </div>
 
     <h3>Add a new Movie</h3>
-    <form asp-action="Book" method="post">
+    <form asp-action="Movie" method="post">
         <div asp-validation-summary="All"></div>
-        @*             <label asp-for="@Model.NewBook.BookID">The Book Number</label>
-        <input asp-for="@Model.NewMovie.MovieID" />
-        <br /> *@
+        
+
         <label asp-for="@Model.NewMovie.Title">The Movie Title</label>
         <input asp-for="@Model.NewMovie.Title" />
         <br />

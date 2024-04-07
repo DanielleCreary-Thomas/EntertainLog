@@ -61,6 +61,21 @@ namespace EntertainLog.Controllers
             });
         }
 
+        //Account
+        [HttpGet]
+        public IActionResult Account()
+        {
+            return View(new AccountViewModel
+            {
+                CurrUser = _CurrUser,
+
+                BooksFaves = _entertainLogRepo.Books.Where(b => b.Favourited == true).Take(3).ToList(),
+                MoviesFaves = _entertainLogRepo.Movies.Where(b => b.Favourited == true).Take(3).ToList(),
+                TVShowsFaves = _entertainLogRepo.TVShows.Where(b => b.Favourited == true).Take(3).ToList(),
+                MusicsFaves = _entertainLogRepo.Musics.Where(m => m.Favourited == true).Take(3).ToList(),
+            });
+        }
+
         //Books
         /// <summary>
         /// Displays the Book page with the current User's Books
@@ -320,5 +335,54 @@ namespace EntertainLog.Controllers
             });
 
         }
+
+        //Movie
+        [HttpGet]
+        public IActionResult Movie()
+        {
+
+            return View(new MovieViewModel
+            {
+                Movies = _entertainLogRepo.Movies,
+                CurrUser = _CurrUser
+            });
+        }
+
+        [HttpPost]
+        public IActionResult Movie(MovieViewModel movieViewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                _entertainLogRepo.AddMovie(movieViewModel.NewMovie);
+
+                ModelState.Clear();
+            }
+            return View(new MovieViewModel
+            {
+                Movies = _entertainLogRepo.Movies,
+                CurrUser = movieViewModel.CurrUser
+            });
+        }
+
+        [HttpGet]
+        public IActionResult EditMovie(long MovieID)
+        {
+            return View(new MovieViewModel
+            {
+                CurrMovie = _entertainLogRepo.GetMovieByIDAsync(MovieID).Result,
+                CurrUser = _CurrUser
+
+            });
+        }
+
+        [HttpPost]
+        public IActionResult EditMovie(MovieViewModel movieViewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                _entertainLogRepo.UpdateMovie(movieViewModel.CurrMovie);
+                ModelState.Clear();
+            }
+            return RedirectToAction("Movie", movieViewModel);
     }
 }
