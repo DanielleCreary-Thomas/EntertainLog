@@ -1,5 +1,63 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model EntertainLog.Models.ViewModel.MovieViewModel;
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>
+        Edit @Model.CurrMovie.Title
+    </title>
+</head>
+<body>
+    <div>
+        <a class="rounded-pill" asp-action="Dashboard">Back</a> <h1>Movie</h1>
+    </div>
+
+    <h3>Edit @Model.CurrMovie.Title</h3>
+    <form asp-action="Movie" method="post">
+        <div asp-validation-summary="All"></div>
+        <input type="hidden" asp-for="@Model.CurrMovie.MovieID" value="@Model.CurrMovie.MovieID" />
+        <br />
+        <label asp-for="@Model.CurrMovie.Title">The Movie Title</label>
+        <input asp-for="@Model.CurrMovie.Title" />
+        <br />
+        <label asp-for="@Model.CurrMovie.Director">The Movie Director</label>
+        <input asp-for="@Model.CurrMovie.Director" />
+        <br />
+        <label asp-for="@Model.CurrMovie.Year">The Movie Release Year</label>
+        <input asp-for="@Model.CurrMovie.Year" />
+        <br />
+        <label asp-for="@Model.CurrMovie.Genre">The Movie Genre</label>
+        <input asp-for="@Model.CurrMovie.Genre" />
+        <br />
+        <label asp-for="@Model.CurrMovie.Runtime">The Movie Page Count</label>
+        <input asp-for="@Model.CurrMovie.Runtime" />
+        <br />
+        <label asp-for="@Model.CurrMovie.Watched">Already Watched? </label>
+        <input type="checkbox" asp-for="@Model.CurrMovie.Watched" />
+        <br />
+        <label asp-for="@Model.CurrMovie.Favourited">Favourite? </label>
+        <input type="checkbox" asp-for="@Model.CurrMovie.Favourited" />
+        <br />
+        <label asp-for="@Model.CurrMovie.Queued">Queue to Read Next? </label>
+        <input type="checkbox" asp-for="@Model.CurrMovie.Queued" />
+        <br />
+        <label asp-for="@Model.CurrMovie.Rating">The Movie Rating</label>
+        <select asp-for="@Model.CurrMovie.Rating">
+            @for (int i = 1; i <= 5; i++)
+            {
+                <option value="@i">@i</option>
+            }
+        </select>
+        <br />
+        <label asp-for="@Model.CurrMovie.Notes">Comments</label>
+        <textarea asp-for="@Model.CurrMovie.Notes" />
+        <br />
+        <input type="hidden" asp-for="@Model.CurrMovie.UserID" value="@Model.CurrUser.UserID" />
+        <button type="submit">Submit</button>
+
+    </form>
+    <br />
+
+
+</body>
+
+</html>

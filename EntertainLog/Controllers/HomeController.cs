@@ -39,6 +39,21 @@ namespace EntertainLog.Controllers
             });
         }
 
+        //Account
+        [HttpGet]
+        public IActionResult Account()
+        {
+            return View(new AccountViewModel
+            {
+                CurrUser = _CurrUser,
+
+                BooksFaves = _entertainLogRepo.Books.Where(b => b.Favourited == true).Take(3).ToList(),
+                MoviesFaves = _entertainLogRepo.Movies.Where(b => b.Favourited == true).Take(3).ToList(),
+                TVShowsFaves = _entertainLogRepo.TVShows.Where(b => b.Favourited == true).Take(3).ToList(),
+                MusicsFaves = _entertainLogRepo.Musics.Where(m => m.Favourited == true).Take(3).ToList(),
+            });
+        }
+
         //Books
         [HttpGet]
         public IActionResult Book()
