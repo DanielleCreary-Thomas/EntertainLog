@@ -5518,23 +5518,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\syl31\\.nuget\\packages\\": {},
+    "C:\\Users\\douga\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\syl31\\Source\\Repos\\EntertainLog\\EntertainLogTesting\\EntertainLogTesting.csproj",
+      "projectUniqueName": "C:\\Users\\douga\\source\\repos\\EntertainLog\\EntertainLogTesting\\EntertainLogTesting.csproj",
       "projectName": "EntertainLogTesting",
-      "projectPath": "C:\\Users\\syl31\\Source\\Repos\\EntertainLog\\EntertainLogTesting\\EntertainLogTesting.csproj",
-      "packagesPath": "C:\\Users\\syl31\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\syl31\\Source\\Repos\\EntertainLog\\EntertainLogTesting\\obj\\",
+      "projectPath": "C:\\Users\\douga\\source\\repos\\EntertainLog\\EntertainLogTesting\\EntertainLogTesting.csproj",
+      "packagesPath": "C:\\Users\\douga\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\douga\\source\\repos\\EntertainLog\\EntertainLogTesting\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\syl31\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\douga\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
