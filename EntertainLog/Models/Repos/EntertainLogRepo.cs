@@ -113,6 +113,11 @@ namespace EntertainLog.Models.Repos
         {
             return await _dbContext.UsersSet.FindAsync(id);
         }
+        public User? GetUserByNameAsync(string name)
+        {
+            User user = _dbContext.UsersSet.FirstOrDefault(u => u.UserName == name);
+            return user;
+        }
 
         //Update
         public Book UpdateBook(Book book)

@@ -13,6 +13,7 @@
 
         IQueryable<TVShow> TVShows { get; }
 
+
         void AddUser(User user);
         Movie AddMovie(Movie movie);
         Music AddMusic(Music music);
@@ -35,6 +36,6 @@
         void DeleteMusic(Music music);
         void DeleteBook(Book book);
         void DeleteTVShow(TVShow tvshow);
-
+        User? GetUserByNameAsync(string name);
     }
 }

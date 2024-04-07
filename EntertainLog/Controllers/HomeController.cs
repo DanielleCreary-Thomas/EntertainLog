@@ -2,6 +2,8 @@
 using EntertainLog.Models.Repos;
 using EntertainLog.Models.ViewModel;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Identity.Client;
+using Microsoft.VisualStudio.TestPlatform.ObjectModel.Utilities;
 
 
 namespace EntertainLog.Controllers
@@ -59,6 +61,30 @@ namespace EntertainLog.Controllers
                 MusicsFaves = _entertainLogRepo.Musics.Where(m => m.Favourited == true).Take(10).ToList(),
 
             });
+        }
+        //Login
+        [HttpGet]
+        public IActionResult Login() { return View(); }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Login(LoginViewModel loginViewModel)
+        {
+            User user = _entertainLogRepo.GetUserByNameAsync(loginViewModel.Username);
+            if(user.Password == loginViewModel.Password && user.UserName == loginViewModel.Username)
+            {
+                _CurrUser = user;
+                return Dashboard();
+            }
+            else
+            {
+                ModelState.AddModelError("", "Invalid username or password");
+                return View();
+            }
+            
+            
+
         }
 
         //Account
@@ -384,5 +410,6 @@ namespace EntertainLog.Controllers
                 ModelState.Clear();
             }
             return RedirectToAction("Movie", movieViewModel);
+        }
     }
 }
