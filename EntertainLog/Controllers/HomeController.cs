@@ -204,5 +204,56 @@ namespace EntertainLog.Controllers
             }
             return RedirectToAction("TVShow", tvshowModel);
         }
+
+        //Movie
+        [HttpGet]
+        public IActionResult Movie()
+        {
+
+            return View(new MovieViewModel
+            {
+                Movies = _entertainLogRepo.Movies,
+                CurrUser = _CurrUser
+            });
+        }
+
+        [HttpPost]
+        public IActionResult Movie(MovieViewModel movieViewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                _entertainLogRepo.AddMovie(movieViewModel.NewMovie);
+
+                ModelState.Clear();
+            }
+            return View(new MovieViewModel
+            {
+                Movies = _entertainLogRepo.Movies,
+                CurrUser = movieViewModel.CurrUser
+            });
+        }
+
+        [HttpGet]
+        public IActionResult EditMovie(long MovieID)
+        {
+            return View(new MovieViewModel
+            {
+                CurrMovie = _entertainLogRepo.GetMovieByIDAsync(MovieID).Result,
+                CurrUser = _CurrUser
+
+            });
+        }
+
+        [HttpPost]
+        public IActionResult EditMovie(MovieViewModel movieViewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                _entertainLogRepo.UpdateMovie(movieViewModel.CurrMovie);
+                ModelState.Clear();
+            }
+            return RedirectToAction("Movie", movieViewModel);
+        }
+
     }
 }

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EntertainLog")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+23084f93089e1054457edcac4d935d095b24e322")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+97fed3ea10da2152f36dce285b8f895c7bb9d4c4")]
 [assembly: System.Reflection.AssemblyProductAttribute("EntertainLog")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EntertainLog")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
