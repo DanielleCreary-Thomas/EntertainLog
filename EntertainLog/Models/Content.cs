@@ -3,6 +3,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EntertainLog.Models
 {
+    /// <summary>
+    /// Created By: Danielle Creary-Thomas
+    /// Represents the Content class, a superclass for all content subtypes
+    /// </summary>
     public class Content
     {
         public Content() { }

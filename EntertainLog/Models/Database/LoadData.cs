@@ -2,6 +2,9 @@
 
 namespace EntertainLog.Models.Database
 {
+    /// <summary>
+    /// Contains the method to load the initial data into each table required by the App
+    /// </summary>
     public class LoadData
     {
         public static void LoadInitialData(IApplicationBuilder app)

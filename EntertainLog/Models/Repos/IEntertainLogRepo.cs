@@ -1,5 +1,9 @@
 ﻿namespace EntertainLog.Models.Repos
 {
+    /// <summary>
+    /// Created By: Danielle Creary-Thomas
+    /// The interface stating the collections and methods used throughout the application
+    /// </summary>
     public interface IEntertainLogRepo
     {
         IQueryable<User> Users { get; }

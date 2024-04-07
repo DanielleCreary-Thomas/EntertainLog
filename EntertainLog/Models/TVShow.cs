@@ -2,16 +2,12 @@
 
 namespace EntertainLog.Models
 {
+    /// <summary>
+    /// Created By: Danielle Creary-Thomas
+    /// Represents the TVShow Entity which inherits from the Content class
+    /// </summary>
     public class TVShow : Content
     {
-        /**
-         * TVShowID:Int
-            Creator:String
-            Seasons:Int
-            Episodes:Int
-            consumed:->Watched:Bool
-
-         */
         public TVShow() { }
 
         [Key]

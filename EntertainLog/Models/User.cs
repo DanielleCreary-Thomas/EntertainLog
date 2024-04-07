@@ -2,6 +2,10 @@
 
 namespace EntertainLog.Models
 {
+    /// <summary>
+    /// Created By: Yuanlong Song
+    /// Represents the User Entity
+    /// </summary>
     public class User
     {
         public User() { }

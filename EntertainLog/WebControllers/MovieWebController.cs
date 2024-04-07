@@ -5,11 +5,23 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EntertainLog.WebControllers
 {
+    /// <summary>
+    /// Created By: Danielle Creary-Thomas
+    /// API for the Movie Entity, Performs CRUD Actions through Http Request Methods
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class MovieWebController : ControllerBase
     {
+        /// <summary>
+        /// reference to the EntertainLog Repository
+        /// </summary>
         private IEntertainLogRepo _entertainLogRepo;
+
+        /// <summary>
+        /// Initializes the Book API with the EntertainLogRepo getting constructor Injected
+        /// </summary>
+        /// <param name="entertainLogRepo"></param>
         public MovieWebController(IEntertainLogRepo entertainLogRepo)
         {
             _entertainLogRepo = entertainLogRepo;

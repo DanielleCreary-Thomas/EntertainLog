@@ -2,6 +2,10 @@
 
 namespace EntertainLog.Models
 {
+    /// <summary>
+    /// Created By: Danielle Creary-Thomas
+    /// Represents the Music Entity which inherits from the Content class
+    /// </summary>
     public class Music : Content
     { 
         public Music() { }

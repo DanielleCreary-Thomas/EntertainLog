@@ -1,5 +1,9 @@
 ﻿namespace EntertainLog.Models.ViewModel
 {
+    /// <summary>
+    /// Created By: Danielle Creary-Thomas
+    /// The structure holding the objects required by the Dashboard related Views
+    /// </summary>
     public class DashboardViewModel
     {
         public IEnumerable<Book> BooksQueue { get; set; }

@@ -2,6 +2,10 @@
 
 namespace EntertainLog.Models
 {
+    /// <summary>
+    /// Created By: Danielle Creary-Thomas
+    /// Represents the Book Entity which inherits from the Content class
+    /// </summary>
     public class Book : Content
     {
         public Book() { }

@@ -2,6 +2,10 @@
 
 namespace EntertainLog.Models.Database
 {
+    /// <summary>
+    /// Created By: Danielle Creary-Thomas
+    /// the Database context to hold the records of each table
+    /// </summary>
     public class EntertainLogDBContext : DbContext
     {
         public EntertainLogDBContext(DbContextOptions<EntertainLogDBContext> option): base (option) { }

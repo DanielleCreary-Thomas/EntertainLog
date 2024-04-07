@@ -1,5 +1,9 @@
 ﻿namespace EntertainLog.Models.ViewModel
 {
+    /// <summary>
+    /// Created By: Danielle Creary-Thomas
+    /// The structure holding the objects required by the Movie related Views
+    /// </summary>
     public class MovieViewModel
     {
         public IEnumerable<Movie> Movies { get; set; }

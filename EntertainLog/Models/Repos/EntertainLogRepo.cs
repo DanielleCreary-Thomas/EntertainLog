@@ -4,6 +4,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EntertainLog.Models.Repos
 {
+    /// <summary>
+    /// Created By: Danielle Creary-Thomas
+    /// The implements the interface of the same name
+    /// </summary>
     public class EntertainLogRepo : IEntertainLogRepo
     {
         private EntertainLogDBContext _dbContext;
