@@ -49,6 +49,24 @@ namespace EntertainLog.Models.Database
                         UserName = "JonDoe",
                         Email = "jd@email.com",
                         Password = "password3"
+                    },
+                    new User
+                    {
+                        UserName = "DeputyRG",
+                        Email = "deputy@email.com",
+                        Password = "password4"
+                    },
+                    new User
+                    {
+                        UserName = "SwordLady",
+                        Email = "m@email.com",
+                        Password = "password5"
+                    },
+                    new User
+                    {
+                        UserName = "GlennR",
+                        Email="ghree@email.com",
+                        Password = "password6"
                     }
                     );
                 context.SaveChanges();
