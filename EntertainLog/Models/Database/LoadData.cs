@@ -34,24 +34,39 @@ namespace EntertainLog.Models.Database
                 context.UsersSet.AddRange(
                     new User
                     {
-                        UserID = 1,
                         UserName = "Darryl",
                         Email = "dd@email.com",
                         Password = "password1"
                     },
                     new User
                     {
-                        UserID = 2,
                         UserName = "PhilipS",
                         Email = "ps@email.com",
                         Password = "password2"
                     },
                     new User
                     {
-                        UserID = 3,
                         UserName = "JonDoe",
                         Email = "jd@email.com",
                         Password = "password3"
+                    },
+                    new User
+                    {
+                        UserName = "DeputyRG",
+                        Email = "deputy@email.com",
+                        Password = "password4"
+                    },
+                    new User
+                    {
+                        UserName = "SwordLady",
+                        Email = "m@email.com",
+                        Password = "password5"
+                    },
+                    new User
+                    {
+                        UserName = "GlennR",
+                        Email="ghree@email.com",
+                        Password = "password6"
                     }
                     );
                 context.SaveChanges();
