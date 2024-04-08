@@ -32,6 +32,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-LoadData.LoadInitialData(app);
+//LoadData.LoadInitialData(app);
 
 app.Run();

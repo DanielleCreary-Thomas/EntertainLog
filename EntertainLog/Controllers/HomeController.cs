@@ -83,7 +83,7 @@ namespace EntertainLog.Controllers
             if(user.Password == loginViewModel.Password && user.UserName == loginViewModel.Username)
             {
                 _CurrUser = user;
-                return Dashboard();
+                return RedirectToAction("Dashboard",_CurrUser);
             }
             else
             {
