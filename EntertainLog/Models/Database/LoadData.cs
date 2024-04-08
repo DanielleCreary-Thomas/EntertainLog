@@ -31,12 +31,96 @@ namespace EntertainLog.Models.Database
             if (!context.UsersSet.Any())
             {
                 //add each user from above, example below
+                context.UsersSet.AddRange(
+                    new User
+                    {
+                        UserID = 1,
+                        UserName = "Darryl",
+                        Email = "dd@email.com",
+                        Password = "password1"
+                    },
+                    new User
+                    {
+                        UserID = 2,
+                        UserName = "PhilipS",
+                        Email = "ps@email.com",
+                        Password = "password2"
+                    },
+                    new User
+                    {
+                        UserID = 3,
+                        UserName = "JonDoe",
+                        Email = "jd@email.com",
+                        Password = "password3"
+                    }
+                    );
+                context.SaveChanges();
                 //context.UsersSet.Add(user1);
             }
             if (!context.MoviesSet.Any())
             {
                 context.MoviesSet.AddRange(
                     //Add Movies Here
+                    new Movie
+                    {
+                        Title = "A Dog's Purpose",
+                        Director = "Lasse Hallström",
+                        Year = "2017",
+                        Genre = "Drama",
+                        Runtime = "100 min",
+                        Watched = true,
+                        Rating = 5,
+                        Notes = "Motional",
+                        UserID = 5 // Example user ID
+                    },
+                    new Movie
+                    {
+                        Title = "2012",
+                        Director = "Roland Emmerich",
+                        Year = "2009",
+                        Genre = "Disaster",
+                        Runtime = "150 min",
+                        Watched = false,
+                        Rating = 4,
+                        Notes = "Disaster Movie",
+                        UserID = 1 // Example user ID
+                    },
+                    new Movie
+                    {
+                        Title = "Avengers: Endgame",
+                        Director = "Anthony Russo, Joe Russo",
+                        Year = "2019",
+                        Genre = "Heronic",
+                        Runtime = "150 min",
+                        Watched = true,
+                        Rating = 5,
+                        Notes = "Avengers by Marvel",
+                        UserID = 3 // Example user ID
+                    },
+                    new Movie
+                    {
+                        Title = "Lala Land",
+                        Director = "Damien Chazelle",
+                        Year = "2016",
+                        Genre = "Romantic",
+                        Runtime = "128 min",
+                        Watched = true,
+                        Rating = 5,
+                        Notes = "A story all about music",
+                        UserID = 2 // Example user ID
+                    },
+                    new Movie
+                    {
+                        Title = "The Shawshank Redemption",
+                        Director = "Frank Darabont",
+                        Year = "1994",
+                        Genre = "Drama",
+                        Runtime = "142 min",
+                        Watched = true,
+                        Rating = 5,
+                        Notes = "Always be kind",
+                        UserID = 2 // Example user ID
+                    }
                     //set the foreign key user to users above
                     );
                 context.SaveChanges();
