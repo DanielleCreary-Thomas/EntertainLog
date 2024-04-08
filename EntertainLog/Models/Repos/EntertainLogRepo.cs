@@ -27,6 +27,12 @@ namespace EntertainLog.Models.Repos
         public IQueryable<TVShow> TVShows => _dbContext.TVShowsSet;
 
         //Create
+        public User AddUser(User user)
+        {
+            _dbContext.UsersSet.Add(user);
+            _dbContext.SaveChanges();
+            return user;
+        }
         public Book AddBook(Book book)
         {
             _dbContext.BooksSet.Add(book);

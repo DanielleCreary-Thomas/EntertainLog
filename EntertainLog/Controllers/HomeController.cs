@@ -36,6 +36,14 @@ namespace EntertainLog.Controllers
             return View();
         }
 
+        [HttpPost]
+        public IActionResult SignUp(User user)
+        {
+            user.UserID = _entertainLogRepo.Users.Count<User>() + 1;
+            _entertainLogRepo.AddUser(user);
+            return Redirect("Login");
+        }
+
 
         //Dashboard
         /// <summary>
