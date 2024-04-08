@@ -14,7 +14,7 @@
         IQueryable<TVShow> TVShows { get; }
 
 
-        void AddUser(User user);
+        User AddUser(User user);
         Movie AddMovie(Movie movie);
         Music AddMusic(Music music);
         Book AddBook(Book book);

@@ -61,12 +61,6 @@ namespace EntertainLog.Models.Repos
             return tvshow;
         }
 
-        public void AddUser(User user)
-        {
-            _dbContext.UsersSet.Add(user);
-            _dbContext.SaveChanges();
-            
-        }
 
         //Delete
         public void DeleteBook(Book book)
