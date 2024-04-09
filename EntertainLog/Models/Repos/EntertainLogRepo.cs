@@ -153,5 +153,12 @@ namespace EntertainLog.Models.Repos
             _dbContext.SaveChanges();
             return tvshow;
         }
+
+        public User UpdateUser(User user)
+        {
+            _dbContext.UsersSet.Update(user);
+            _dbContext.SaveChanges();
+            return user;
+        }
     }
 }
