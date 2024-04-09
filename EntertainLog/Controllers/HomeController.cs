@@ -109,7 +109,24 @@ namespace EntertainLog.Controllers
 
         }
 
+
+        //Logout
+        /// <summary>
+        /// Logs out the current user
+        /// </summary>
+        /// <returns>The Login Page</returns>
+        [HttpGet]
+        public IActionResult Logout()
+        {
+            return RedirectToAction("Login");
+        }
+
         //Account
+        /// <summary>
+        /// Shows the current user's account page to edit their user details and view their Recent Entertainment History
+        /// </summary>
+        /// <param name="id">Given User ID</param>
+        /// <returns>The account page with the given account viewmodel</returns>
         [HttpGet]
         public IActionResult Account(long id)
         {
@@ -124,6 +141,11 @@ namespace EntertainLog.Controllers
             });
         }
 
+        /// <summary>
+        /// updates the user information
+        /// </summary>
+        /// <param name="avm">account view model</param>
+        /// <returns>redirect to the account page with the updated user id</returns>
         [HttpPost]
         public IActionResult Account(AccountViewModel avm)
         {
