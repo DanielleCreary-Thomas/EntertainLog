@@ -10,8 +10,9 @@
     </head>
 
     <body>
-        <h1>Welcome to the EntertainLog!</h1>
-        <h2>Not our member yet? Join us Today!!</h2>
+        <h2>Welcome to the EntertainLog!</h2>
+        <br />
+        <h3>Not our member yet? Join us Today!!</h3>
         <form asp-action="SignUp" method="post">
             <label asp-for="@Model.UserName">Your User Name</label>
             <input asp-for="@Model.UserName" />
@@ -25,6 +26,7 @@
             <button type="submit">Sign Up</button>
 
         </form>
+        <br /><br />
         <p>Already with us? <a asp-action="Login">Login Now!</a></p>
     </body>
 </html>

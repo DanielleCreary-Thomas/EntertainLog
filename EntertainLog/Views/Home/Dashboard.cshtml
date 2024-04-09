@@ -22,22 +22,21 @@
             • If the truck and route repositories already have data then the Dashboard should 
             show the data as well.
         *@
-        <form asp-action="Book" asp-route-id="@Model.CurrUser.UserID" method="get">
-            <button type="submit">Books</button>
-        </form>
-@*         <form asp-action="DeleteBook" asp-route-id="@book.BookID" method="post">
-            <button type="submit">Delete</button>
-        </form>
-        <form asp-action="DeleteBook" asp-route-id="@book.BookID" method="post">
-            <button type="submit">Delete</button>
-        </form>
-        <form asp-action="DeleteBook" asp-route-id="@book.BookID" method="post">
-            <button type="submit">Delete</button>
-        </form>
-        <a asp-action="Book" ><h5>Books</h5></a> *@
-        <h5><a asp-action="Movie">Movies</a></h5>
-        <a asp-action="TVShow"><h5>TV Shows</h5></a>
-        <a asp-action="Music"><h5>Music</h5></a>
+        <div>
+            <form asp-action="Book" asp-route-id="@Model.CurrUser.UserID" method="get">
+                <button type="submit">Books</button>
+            </form>
+            <form asp-action="Movie" asp-route-id="@Model.CurrUser.UserID" method="get">
+                <button type="submit">Movies</button>
+            </form>
+            <form asp-action="TVShow" asp-route-id="@Model.CurrUser.UserID" method="get">
+                <button type="submit">TV Shows</button>
+            </form>
+            <form asp-action="Music" asp-route-id="@Model.CurrUser.UserID" method="get">
+                <button type="submit">Musics</button>
+            </form>
+        </div>
+
 
 
 
@@ -51,14 +50,14 @@
             <table class="table-bordered">
                 <thead>
                     <tr>
-                        <td>Book Title</td>
+                        <td>Book Title&emsp;</td>
                         <td>Book Author</td>
                         <td>Book Year</td>
                         <td>Genre</td>
                         <td>Page Count</td>
                         <td>Read</td>
                         <td>Favourited</td>
-                        <td>Queued</td>
+                        <td>Queued&emsp;</td>
                         <td>Rating</td>
                     </tr>
                 </thead>

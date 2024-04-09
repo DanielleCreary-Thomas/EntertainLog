@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "U42yrVingtn9Gt/IT3DvdAjs4sIyTAsnBeoa7S69j2j/Ddgb7xFhsDI86UK8IqfbMpDtX/YEhLDDhl98YUXdcw==",
+  "dgSpecHash": "ApDs8SGRDT4jpyv6SI7N4sX8E+ZiFan/3Xp9FI7K3Uw8+QYTnky27RmZF+28tbBNxMfUhTCD5Hg0iR4ton6P8Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\douga\\source\\repos\\EntertainLog\\EntertainLogTesting\\EntertainLogTesting.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\douga\\.nuget\\packages\\bootstrap\\5.3.3\\bootstrap.5.3.3.nupkg.sha512",
     "C:\\Users\\douga\\.nuget\\packages\\coverlet.collector\\6.0.0\\coverlet.collector.6.0.0.nupkg.sha512",
     "C:\\Users\\douga\\.nuget\\packages\\microsoft.codecoverage\\17.6.0\\microsoft.codecoverage.17.6.0.nupkg.sha512",
     "C:\\Users\\douga\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.3\\microsoft.entityframeworkcore.8.0.3.nupkg.sha512",
