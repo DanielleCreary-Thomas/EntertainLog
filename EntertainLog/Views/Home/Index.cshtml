@@ -12,7 +12,7 @@
     <body>
         <h1>Welcome to the EntertainLog!</h1>
         <h2>Not our member yet? Join us Today!!</h2>
-        <form>
+        <form asp-action="SignUp" method="post">
             <label asp-for="@Model.UserName">Your User Name</label>
             <input asp-for="@Model.UserName" />
             <br />
@@ -21,6 +21,7 @@
             <br />
             <label asp-for="@Model.Password"></label>
             <input asp-for="@Model.Password" />
+            <br />
             <button type="submit">Sign Up</button>
 
         </form>

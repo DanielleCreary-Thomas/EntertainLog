@@ -1,7 +1,7 @@
 ﻿namespace EntertainLog.Models.ViewModel
 {
     /// <summary>
-    /// Created By: Danielle Creary-Thomas
+    /// Created By: Yuanlong
     /// The structure holding the objects required by the Movie related Views
     /// </summary>
     public class MovieViewModel

@@ -2,6 +2,20 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/EntertainLog/obj/Debug/net8.0/EntertainLog.AssemblyInfo.cs
-/EntertainLog/Migrations
-/EntertainLog/.vs/EntertainLog/FileContentIndex
+/EntertainLog/.vs/EntertainLog/FileContentIndex/20adfb25-f089-4a84-8282-43ebe514bae6.vsidx
+/EntertainLog/.vs/EntertainLog/FileContentIndex/45391366-4a55-4108-81d7-1109cbfdbf37.vsidx
+/EntertainLog/.vs/EntertainLog/FileContentIndex/7e665806-c243-407d-9075-9fdc83c6cf72.vsidx
+/EntertainLog/.vs/EntertainLog/FileContentIndex/ad0bca07-2856-4b71-95c6-f0afb9bbf20e.vsidx
+/EntertainLog/.vs/EntertainLog/FileContentIndex/ad39c2d4-1d4f-4d4f-b765-7966303484c2.vsidx
+/EntertainLog/.vs/EntertainLog/FileContentIndex/b083e760-208f-4186-9ea7-62e1b8684131.vsidx
+/EntertainLog/.vs/EntertainLog/FileContentIndex/bc9ab3b2-d5ae-4b55-a360-083e6000221a.vsidx
+/EntertainLog/.vs/EntertainLog/FileContentIndex/d405b837-e29e-4580-8c6a-0f34084ef111.vsidx
+/EntertainLog/.vs/EntertainLog/FileContentIndex/ebfb812e-ae09-4b92-9c2c-b7f6711ef35e.vsidx
+/EntertainLog/.vs/EntertainLog/FileContentIndex/f8843f53-01ba-4459-8eea-8fefc7fc9092.vsidx
+/EntertainLog/.vs/EntertainLog/FileContentIndex/02bc1e0f-40b6-40a9-abce-6a67f88538db.vsidx
+/EntertainLog/.vs/EntertainLog/FileContentIndex/1253af71-5a5b-4423-9f8b-61378656d473.vsidx
+/EntertainLog/.vs/EntertainLog/FileContentIndex/243db3d1-3825-4c8f-a878-05557a897e17.vsidx
+/EntertainLog/.vs/EntertainLog/FileContentIndex/76c00b9c-f4bb-4240-812f-42ae1e68ce81.vsidx
+/EntertainLog/.vs/EntertainLog/FileContentIndex/ea27539b-f4c7-4913-9793-2abecfa096d0.vsidx
+/EntertainLog/Migrations/20240408014502_initial.cs
+/EntertainLog/Migrations/20240408014502_initial.Designer.cs

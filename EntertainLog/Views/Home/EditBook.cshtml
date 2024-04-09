@@ -8,11 +8,14 @@
     </head>
     <body>
         <div>
-            <a class="rounded-pill" asp-action="Dashboard">Back</a> <h1>Books</h1>
+        <form asp-action="Book" asp-route-id="@Model.CurrUser.UserID" method="get">
+            <button type="submit">Back</button>
+        </form>
+        <h1>Books</h1>
         </div>
 
-        <h3>Edit @Model.CurrBook.Title</h3>
-        <form asp-action="Book" method="post">
+        <h2>Edit @Model.CurrBook.Title</h2>
+        <form asp-action="EditBook" method="post">
             <div asp-validation-summary="All"></div>
             <input type="hidden" asp-for="@Model.CurrBook.BookID" value="@Model.CurrBook.BookID" />
             <br />
@@ -48,10 +51,10 @@
                 }
             </select>
             <br />
-            <label asp-for="@Model.CurrBook.Notes">Comments</label>
-            <textarea asp-for="@Model.CurrBook.Notes" />
+            <label asp-for="@Model.CurrBook.Notes">Comments</label><br />
+            <textarea asp-for="@Model.CurrBook.Notes" rows="4" cols="50">@Model.CurrBook.Notes</textarea>
             <br />
-            <input asp-for="@Model.CurrBook.UserID" value="@Model.CurrUser.UserID" />
+            <input asp-for="@Model.CurrBook.UserID" value="@Model.CurrUser.UserID" type="hidden" />
             <button type="submit">Submit</button>
 
         </form>
