@@ -4,6 +4,7 @@ using EntertainLog.Models.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Identity.Client;
 using Microsoft.VisualStudio.TestPlatform.ObjectModel.Utilities;
+using System.Net;
 
 
 namespace EntertainLog.Controllers
@@ -116,11 +117,19 @@ namespace EntertainLog.Controllers
             {
                 CurrUser = _entertainLogRepo.Users.FirstOrDefault(u => u.UserID == id),
 
-                BooksFaves = _entertainLogRepo.Books.Where(b => b.Favourited == true).Take(3).ToList(),
-                MoviesFaves = _entertainLogRepo.Movies.Where(b => b.Favourited == true).Take(3).ToList(),
-                TVShowsFaves = _entertainLogRepo.TVShows.Where(b => b.Favourited == true).Take(3).ToList(),
-                MusicsFaves = _entertainLogRepo.Musics.Where(m => m.Favourited == true).Take(3).ToList(),
+                BooksHist = _entertainLogRepo.Books.Where(b => b.UserID == id).Take(3).ToList(),
+                MoviesHist = _entertainLogRepo.Movies.Where(b => b.UserID == id).Take(3).ToList(),
+                TVShowsHist = _entertainLogRepo.TVShows.Where(b => b.UserID == id).Take(3).ToList(),
+                MusicsHist = _entertainLogRepo.Musics.Where(m => m.UserID == id).Take(3).ToList(),
             });
+        }
+
+        [HttpPost]
+        public IActionResult Account(AccountViewModel avm)
+        {
+            _entertainLogRepo.UpdateUser(avm.CurrUser);
+            ModelState.Clear();
+            return RedirectToAction("Account", new { id = avm.CurrUser.UserID });
         }
 
         //Books
@@ -142,7 +151,7 @@ namespace EntertainLog.Controllers
             }
             else
             {
-                return RedirectToAction("Login");
+                return RedirectToAction("Dashboard", id);
             }
         }
 
@@ -176,7 +185,7 @@ namespace EntertainLog.Controllers
         [HttpGet]
         public IActionResult EditBook(long bookID) 
         {
-            var currBook = _entertainLogRepo.Books.Where(b=>b.BookID == bookID).ToList()[0];
+            var currBook = _entertainLogRepo.Books.Where(b=>b.BookID == bookID).FirstOrDefault();
             return View(new BookViewModel
             {
                 CurrBook = currBook,
@@ -224,12 +233,19 @@ namespace EntertainLog.Controllers
         [HttpGet]
         public IActionResult Music(long id)
         {
-
-            return View(new MusicViewModel
+            var user = _entertainLogRepo.Users.FirstOrDefault(u => u.UserID == id);
+            if (user != null)
             {
-                Musics = _entertainLogRepo.Musics.Where(b => b.UserID == id),
-                CurrUser = _entertainLogRepo.Users.FirstOrDefault(u => u.UserID == id)
-            });
+                return View(new MusicViewModel
+                {
+                    Musics = _entertainLogRepo.Musics.Where(b => b.UserID == id),
+                    CurrUser = user
+                });
+            }
+            else
+            {
+                return RedirectToAction("Dashboard", id);
+            }
         }
 
         /// <summary>
@@ -238,18 +254,18 @@ namespace EntertainLog.Controllers
         /// <param name="musicModel"> A MusicViewModel with the a NewMusic Music created</param>
         /// <returns>Current User's Musics in a MusicViewModel</returns>
         [HttpPost]
-        public IActionResult Music(MusicViewModel musicModel)
+        public IActionResult Music(Music newMusic)
         {
             if (ModelState.IsValid)
             {
-                _entertainLogRepo.AddMusic(musicModel.NewMusic);
+                _entertainLogRepo.AddMusic(newMusic);
 
                 ModelState.Clear();
             }
             return View(new MusicViewModel
             {
-                Musics = _entertainLogRepo.Musics,
-                CurrUser = musicModel.CurrUser
+                Musics = _entertainLogRepo.Musics.Where(b => b.UserID == newMusic.UserID),
+                CurrUser = _entertainLogRepo.Users.FirstOrDefault(u => u.UserID == newMusic.UserID)
             });
         }
 
@@ -261,7 +277,7 @@ namespace EntertainLog.Controllers
         [HttpGet]
         public IActionResult EditMusic(long MusicID)
         {
-            var currSong = _entertainLogRepo.GetMusicByIDAsync(MusicID).Result;
+            var currSong = _entertainLogRepo.Musics.Where(m => m.MusicID == MusicID).FirstOrDefault();
             return View(new MusicViewModel
             {
                 CurrMusic = currSong,
@@ -278,12 +294,9 @@ namespace EntertainLog.Controllers
         [HttpPost]
         public IActionResult EditMusic(MusicViewModel musicModel)
         {
-            if (ModelState.IsValid)
-            {
-                _entertainLogRepo.UpdateMusic(musicModel.CurrMusic);
-                ModelState.Clear();
-            }
-            return RedirectToAction("Music", musicModel);
+            _entertainLogRepo.UpdateMusic(musicModel.CurrMusic);
+            ModelState.Clear();
+            return RedirectToAction("Music", new { id = musicModel.CurrMusic.MusicID });
         }
         
         /// <summary>
@@ -296,11 +309,7 @@ namespace EntertainLog.Controllers
         {
             var currSong = _entertainLogRepo.GetMusicByIDAsync(MusicID).Result;
             _entertainLogRepo.DeleteMusic(currSong);
-            return RedirectToAction("Music", new MusicViewModel
-            {
-                Musics = _entertainLogRepo.Musics,
-                CurrUser = _entertainLogRepo.Users.FirstOrDefault(u => u.UserID == currSong.UserID)
-            });
+            return RedirectToAction("Music", new {id = currSong.UserID});
 
         }
 
@@ -313,12 +322,19 @@ namespace EntertainLog.Controllers
         [HttpGet]
         public IActionResult TVShow(long id)
         {
-
-            return View(new TVShowViewModel
+            var user = _entertainLogRepo.Users.FirstOrDefault(u => u.UserID == id);
+            if (user != null)
             {
-                TVShows = _entertainLogRepo.TVShows.Where(b => b.UserID == id),
-                CurrUser = _entertainLogRepo.Users.FirstOrDefault(u => u.UserID == id)
-            });
+                return View(new TVShowViewModel
+                {
+                    TVShows = _entertainLogRepo.TVShows.Where(b => b.UserID == id),
+                    CurrUser = _entertainLogRepo.Users.FirstOrDefault(u => u.UserID == id)
+                });
+            }
+            else
+            {
+                return RedirectToAction("Dashboard", id);
+            }
         }
 
         /// <summary>
@@ -327,18 +343,18 @@ namespace EntertainLog.Controllers
         /// <param name="tvshowModel"> A TVShowViewModel with the a NewTVShow TVShow created</param>
         /// <returns>Current User's TVShows in a TVShowViewModel</returns>
         [HttpPost]
-        public IActionResult TVShow(TVShowViewModel tvshowModel)
+        public IActionResult TVShow(TVShow newTVShow)
         {
             if (ModelState.IsValid)
             {
-                _entertainLogRepo.AddTVShow(tvshowModel.NewTVShow);
+                _entertainLogRepo.AddTVShow(newTVShow);
 
                 ModelState.Clear();
             }
             return View(new TVShowViewModel
             {
-                TVShows = _entertainLogRepo.TVShows,
-                CurrUser = tvshowModel.CurrUser
+                TVShows = _entertainLogRepo.TVShows.Where(b => b.UserID == newTVShow.UserID),
+                CurrUser = _entertainLogRepo.Users.FirstOrDefault(u => u.UserID == newTVShow.UserID)
             });
         }
 
@@ -350,7 +366,7 @@ namespace EntertainLog.Controllers
         [HttpGet]
         public IActionResult EditTVShow(long TVShowID)
         {
-            var currShow = _entertainLogRepo.GetTVShowByIDAsync(TVShowID).Result;
+            var currShow = _entertainLogRepo.TVShows.Where(t => t.TVShowID == TVShowID).FirstOrDefault();
             return View(new TVShowViewModel
             {
                 CurrTVShow = currShow,
@@ -367,12 +383,9 @@ namespace EntertainLog.Controllers
         [HttpPost]
         public IActionResult EditTVShow(TVShowViewModel tvshowModel)
         {
-            if (ModelState.IsValid)
-            {
-                _entertainLogRepo.UpdateTVShow(tvshowModel.CurrTVShow);
-                ModelState.Clear();
-            }
-            return RedirectToAction("TVShow", tvshowModel);
+            _entertainLogRepo.UpdateTVShow(tvshowModel.CurrTVShow);
+            ModelState.Clear();
+            return RedirectToAction("TVShow", new { id = tvshowModel.CurrTVShow.TVShowID });
         }
 
         /// <summary>
@@ -397,34 +410,41 @@ namespace EntertainLog.Controllers
         [HttpGet]
         public IActionResult Movie(long id)
         {
-
-            return View(new MovieViewModel
+            var user = _entertainLogRepo.Users.FirstOrDefault(u => u.UserID == id);
+            if (user != null)
             {
-                Movies = _entertainLogRepo.Movies.Where(b => b.UserID == id),
-                CurrUser = _entertainLogRepo.Users.FirstOrDefault(u => u.UserID == id)
-            });
+                return View(new MovieViewModel
+                {
+                    Movies = _entertainLogRepo.Movies.Where(b => b.UserID == id),
+                    CurrUser = _entertainLogRepo.Users.FirstOrDefault(u => u.UserID == id)
+                });
+            }
+            else
+            {
+                return RedirectToAction("Dashboard", id);
+            }
         }
 
         [HttpPost]
-        public IActionResult Movie(MovieViewModel movieViewModel)
+        public IActionResult Movie(Movie newMovie)
         {
             if (ModelState.IsValid)
             {
-                _entertainLogRepo.AddMovie(movieViewModel.NewMovie);
+                _entertainLogRepo.AddMovie(newMovie);
 
                 ModelState.Clear();
             }
             return View(new MovieViewModel
             {
-                Movies = _entertainLogRepo.Movies,
-                CurrUser = movieViewModel.CurrUser
+                Movies = _entertainLogRepo.Movies.Where(b => b.UserID == newMovie.UserID),
+                CurrUser = _entertainLogRepo.Users.FirstOrDefault(u => u.UserID == newMovie.UserID)
             });
         }
 
         [HttpGet]
         public IActionResult EditMovie(long MovieID)
         {
-            var currMovieFound = _entertainLogRepo.GetMovieByIDAsync(MovieID).Result;
+            var currMovieFound = _entertainLogRepo.Movies.Where(m => m.MovieID == MovieID).FirstOrDefault();
             return View(new MovieViewModel
             {
                 CurrMovie = currMovieFound,
@@ -436,12 +456,9 @@ namespace EntertainLog.Controllers
         [HttpPost]
         public IActionResult EditMovie(MovieViewModel movieViewModel)
         {
-            if (ModelState.IsValid)
-            {
-                _entertainLogRepo.UpdateMovie(movieViewModel.CurrMovie);
-                ModelState.Clear();
-            }
-            return RedirectToAction("Movie", movieViewModel);
+            _entertainLogRepo.UpdateMovie(movieViewModel.CurrMovie);
+            ModelState.Clear();
+            return RedirectToAction("Movie", new { id = movieViewModel.CurrMovie.MovieID });
         }
 
         /// <summary>
@@ -454,11 +471,7 @@ namespace EntertainLog.Controllers
         {
             var currMov = _entertainLogRepo.GetMovieByIDAsync(MovieID).Result;
             _entertainLogRepo.DeleteMovie(currMov);
-            return RedirectToAction("Movie", new MovieViewModel
-            {
-                Movies = _entertainLogRepo.Movies,
-                CurrUser = _entertainLogRepo.Users.FirstOrDefault(u => u.UserID == currMov.UserID)
-            });
+            return RedirectToAction("Movie", new {id = currMov.UserID});
 
         }
     }

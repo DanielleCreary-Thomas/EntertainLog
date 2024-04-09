@@ -1,5 +1,207 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model EntertainLog.Models.ViewModel.AccountViewModel;
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>
+            EntertainLog Account
+        </title>
+    </head>
+    <body>
+        <div>
+            <form asp-action="Dashboard" asp-route-id="@Model.CurrUser.UserID" method="get">
+                <button type="submit">Back</button>
+            </form>
+            <h1>Account</h1>
+        </div>
+
+        <h3>Update Account Details</h3>
+        <form asp-action="Account" method="post">
+            <label asp-for="@Model.CurrUser.UserName">Your User Name</label>
+            <input asp-for="@Model.CurrUser.UserName" />
+            <br />
+            <label asp-for="@Model.CurrUser.Email">Your Email</label>
+            <input asp-for="@Model.CurrUser.Email" />
+            <br />
+            <label asp-for="@Model.CurrUser.Password"></label>
+            <input asp-for="@Model.CurrUser.Password" />
+            <br />
+            <button type="submit">Update</button>
+
+        </form>
+        <br /><br />
+
+        @* //Recent History *@
+        <h2> Your Recent Entertainment</h2>
+        <hr />
+        <h3>Books</h3>
+        @if (Model.BooksHist.Any())
+        {
+            <br />
+            <table class="table-bordered">
+                <thead>
+                    <tr>
+                        <td>Book Title&emsp;</td>
+                        <td>Book Author</td>
+                        <td>Book Year</td>
+                        <td>Genre</td>
+                        <td>Page Count</td>
+                        <td>Read</td>
+                        <td>Favourited</td>
+                        <td>Queued&emsp;</td>
+                        <td>Rating</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var book in Model.BooksHist)
+                    {
+                        <tr>
+                            <td>@book.Title</td>
+                            <td>@book.Author</td>
+                            <td>@book.Year</td>
+                            <td>@book.Genre</td>
+                            <td>@book.PageCount</td>
+                            <td>@book.Read</td>
+                            <td>@book.Favourited</td>
+                            <td>@book.Queued</td>
+                            <td>@book.Rating</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <h4>Find something to Read!</h4>
+        }
+
+        <br />
+        <h3>Movies</h3>
+        @if (Model.MoviesHist.Any())
+        {
+            <br />
+            <table class="table-bordered">
+                <thead>
+                    <tr>
+                        <td>Movie Title</td>
+                        <td>Movie Director</td>
+                        <td>Movie Year</td>
+                        <td>Genre</td>
+                        <td>Runtime</td>
+                        <td>Watched</td>
+                        <td>Favourited</td>
+                        <td>Queued</td>
+                        <td>Rating</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var movie in Model.MoviesHist)
+                    {
+                        <tr>
+                            <td>@movie.Title</td>
+                            <td>@movie.Director</td>
+                            <td>@movie.Year</td>
+                            <td>@movie.Genre</td>
+                            <td>@movie.Runtime</td>
+                            <td>@movie.Watched</td>
+                            <td>@movie.Favourited</td>
+                            <td>@movie.Queued</td>
+                            <td>@movie.Rating</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <h4>Find something to Watch!</h4>
+        }
+
+        <br />
+        <h3>TV Shows</h3>
+        @if (Model.TVShowsHist.Any())
+        {
+            <br />
+            <table class="table-bordered">
+                <thead>
+                    <tr>
+                        <td>TV Show Title</td>
+                        <td>TV Show Creator</td>
+                        <td>TV Show Year</td>
+                        <td>Genre</td>
+                        <td>Seasons</td>
+                        <td>Watched</td>
+                        <td>Favourited</td>
+                        <td>Queued</td>
+                        <td>Rating</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var tvshow in Model.TVShowsHist)
+                    {
+                        <tr>
+                            <td>@tvshow.Title</td>
+                            <td>@tvshow.Creator</td>
+                            <td>@tvshow.Year</td>
+                            <td>@tvshow.Genre</td>
+                            <td>@tvshow.Seasons</td>
+                            <td>@tvshow.Watched</td>
+                            <td>@tvshow.Favourited</td>
+                            <td>@tvshow.Queued</td>
+                            <td>@tvshow.Rating</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <h4>Find something to Watch!</h4>
+        }
+
+        <br />
+        <h3>Music</h3>
+         @if (Model.MusicsHist.Any())
+        {
+            <br />
+            <table class="table-bordered">
+                <thead>
+                    <tr>
+                        <td>Music Title</td>
+                        <td>Music Artist</td>
+                        <td>Release Year</td>
+                        <td>Genre</td>
+                        <td>Runtime</td>
+                        <td>Listened</td>
+                        <td>Favourited</td>
+                        <td>Queued</td>
+                        <td>Rating</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var music in Model.MusicsHist)
+                    {
+                        <tr>
+                            <td>@music.Title</td>
+                            <td>@music.Artist</td>
+                            <td>@music.Year</td>
+                            <td>@music.Genre</td>
+                            <td>@music.Runtime</td>
+                            <td>@music.Listened</td>
+                            <td>@music.Favourited</td>
+                            <td>@music.Queued</td>
+                            <td>@music.Rating</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <h4>Find something to listen to!</h4>
+        }
+        <br />
+        <br />
+
+    </body>
+
+</html>

@@ -31,6 +31,7 @@
         Music UpdateMusic(Music music);
         Book UpdateBook(Book book);
         TVShow UpdateTVShow(TVShow movie);
+        User UpdateUser(User user);
 
         void DeleteMovie(Movie movie);
         void DeleteMusic(Music music);

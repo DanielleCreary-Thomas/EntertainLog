@@ -58,6 +58,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFZGl0Qm9vay5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/douga/source/repos/EntertainLog/EntertainLog/Views/Home/EditMovie.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFZGl0TW92aWUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/douga/source/repos/EntertainLog/EntertainLog/Views/Home/EditMusic.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFZGl0TXVzaWMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/douga/source/repos/EntertainLog/EntertainLog/Views/Home/EditTVShow.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFZGl0VFZTaG93LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/douga/source/repos/EntertainLog/EntertainLog/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -66,32 +78,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/douga/source/repos/EntertainLog/EntertainLog/Views/Movies/EditMovie.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW92aWVzXEVkaXRNb3ZpZS5jc2h0bWw=
+[C:/Users/douga/source/repos/EntertainLog/EntertainLog/Views/Home/Movie.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxNb3ZpZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/douga/source/repos/EntertainLog/EntertainLog/Views/Movies/Movie.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW92aWVzXE1vdmllLmNzaHRtbA==
+[C:/Users/douga/source/repos/EntertainLog/EntertainLog/Views/Home/Music.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxNdXNpYy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/douga/source/repos/EntertainLog/EntertainLog/Views/Music/EditMusic.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXVzaWNcRWRpdE11c2ljLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/douga/source/repos/EntertainLog/EntertainLog/Views/Music/Music.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXVzaWNcTXVzaWMuY3NodG1s
+[C:/Users/douga/source/repos/EntertainLog/EntertainLog/Views/Home/TVShow.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxUVlNob3cuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/douga/source/repos/EntertainLog/EntertainLog/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/douga/source/repos/EntertainLog/EntertainLog/Views/TVShow/EditTVShow.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVFZTaG93XEVkaXRUVlNob3cuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/douga/source/repos/EntertainLog/EntertainLog/Views/TVShow/TVShow.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVFZTaG93XFRWU2hvdy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/douga/source/repos/EntertainLog/EntertainLog/Views/_ViewImports.cshtml]

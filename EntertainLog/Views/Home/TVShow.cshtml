@@ -8,7 +8,10 @@
     </head>
     <body>
         <div>
-            <a class="rounded-pill" asp-action="Dashboard">Back</a> <h1>TV Shows</h1>
+            <form asp-action="Dashboard" asp-route-id="@Model.CurrUser.UserID" method="get">
+                <button type="submit">Back</button>
+            </form>
+            <h1>TV Shows in @Model.CurrUser.UserName 's EntertainLog</h1>
         </div>
 
         <h3>Add a new TV Show</h3>
@@ -50,13 +53,16 @@
             </select>
             <br />
             <label asp-for="@Model.NewTVShow.Notes">Comments</label>
-            <textarea asp-for="@Model.NewTVShow.Notes" />
+            <textarea asp-for="@Model.NewTVShow.Notes" rows="4" cols="50">What did you think?</textarea>
             <br />
-            <input asp-for="@Model.NewTVShow.UserID" value="@Model.CurrUser.UserID"/>
+            <input asp-for="@Model.NewTVShow.UserID" value="@Model.CurrUser.UserID" type="hidden"/>
             <button type="submit">Submit</button>
 
         </form>
         <br />
+        <hr />
+        <h2> Your TV Shows</h2>
+
         @* Need to check if there are books in the repo to display the table  *@
         @if (Model.TVShows.Any())
         {
@@ -91,12 +97,14 @@
                             <td>@tvshow.Queued</td>
                             <td>@tvshow.Rating</td>
                             <td>
-                                <form asp-action="Edit" asp-route-id="@tvshow.TVShowID" method="post">
-                                    <button type="submit">View More</button>
+                                <form asp-action="EditTVShow" method="get">
+                                    <input type="hidden" name="tvshowID" value="@tvshow.TVShowID" />
+                                    <button type="submit">View</button>
                                 </form>
                             </td>
                             <td>
-                                <form asp-action="DeleteTVShow" asp-route-id="@tvshow.TVShowID" method="post">
+                                <form asp-action="DeleteTVShow" method="post">
+                                    <input type="hidden" name="tvshowID" value="@tvshow.TVShowID" />
                                     <button type="submit">Delete</button>
                                 </form>
                             </td>
@@ -105,6 +113,8 @@
                     }
                 </tbody>
             </table>
+        }else{
+            <h4>Find something to Watch!</h4>
         }
 
     </body>
