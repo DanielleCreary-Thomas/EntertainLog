@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\syl31\\source\\repos\\Project2\\EntertainLog\\EntertainLog.csproj": {}
+    "C:\\Users\\douga\\source\\repos\\EntertainLog\\EntertainLog\\EntertainLog.csproj": {}
   },
   "projects": {
-    "C:\\Users\\syl31\\source\\repos\\Project2\\EntertainLog\\EntertainLog.csproj": {
+    "C:\\Users\\douga\\source\\repos\\EntertainLog\\EntertainLog\\EntertainLog.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\syl31\\source\\repos\\Project2\\EntertainLog\\EntertainLog.csproj",
+        "projectUniqueName": "C:\\Users\\douga\\source\\repos\\EntertainLog\\EntertainLog\\EntertainLog.csproj",
         "projectName": "EntertainLog",
-        "projectPath": "C:\\Users\\syl31\\source\\repos\\Project2\\EntertainLog\\EntertainLog.csproj",
-        "packagesPath": "C:\\Users\\syl31\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\syl31\\source\\repos\\Project2\\EntertainLog\\obj\\",
+        "projectPath": "C:\\Users\\douga\\source\\repos\\EntertainLog\\EntertainLog\\EntertainLog.csproj",
+        "packagesPath": "C:\\Users\\douga\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\douga\\source\\repos\\EntertainLog\\EntertainLog\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\syl31\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\douga\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

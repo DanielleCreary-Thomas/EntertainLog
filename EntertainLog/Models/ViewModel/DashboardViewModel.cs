@@ -17,6 +17,7 @@
         public IEnumerable<Music> MusicsFaves { get; set; }
 
         public User CurrUser { get; set; }
+        public long CurrUserId { get; set; }
 
     }
 }

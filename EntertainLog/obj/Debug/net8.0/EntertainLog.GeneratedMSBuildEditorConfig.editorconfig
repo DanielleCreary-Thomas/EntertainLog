@@ -9,71 +9,71 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = EntertainLog
 build_property.RootNamespace = EntertainLog
-build_property.ProjectDir = C:\Users\syl31\source\repos\Project2\EntertainLog\
+build_property.ProjectDir = C:\Users\douga\source\repos\EntertainLog\EntertainLog\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\syl31\source\repos\Project2\EntertainLog
+build_property.MSBuildProjectDirectory = C:\Users\douga\source\repos\EntertainLog\EntertainLog
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/syl31/source/repos/Project2/EntertainLog/Views/Books/Book.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va3NcQm9vay5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/syl31/source/repos/Project2/EntertainLog/Views/Books/EditBook.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va3NcRWRpdEJvb2suY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/syl31/source/repos/Project2/EntertainLog/Views/Home/Account.cshtml]
+[C:/Users/douga/source/repos/EntertainLog/EntertainLog/Views/Home/Account.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBY2NvdW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/syl31/source/repos/Project2/EntertainLog/Views/Home/Dashboard.cshtml]
+[C:/Users/douga/source/repos/EntertainLog/EntertainLog/Views/Home/Book.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxCb29rLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/douga/source/repos/EntertainLog/EntertainLog/Views/Home/Dashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEYXNoYm9hcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/syl31/source/repos/Project2/EntertainLog/Views/Home/Index.cshtml]
+[C:/Users/douga/source/repos/EntertainLog/EntertainLog/Views/Home/EditBook.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFZGl0Qm9vay5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/douga/source/repos/EntertainLog/EntertainLog/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/syl31/source/repos/Project2/EntertainLog/Views/Home/Login.cshtml]
+[C:/Users/douga/source/repos/EntertainLog/EntertainLog/Views/Home/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/syl31/source/repos/Project2/EntertainLog/Views/Movies/EditMovie.cshtml]
+[C:/Users/douga/source/repos/EntertainLog/EntertainLog/Views/Movies/EditMovie.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW92aWVzXEVkaXRNb3ZpZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/syl31/source/repos/Project2/EntertainLog/Views/Movies/Movie.cshtml]
+[C:/Users/douga/source/repos/EntertainLog/EntertainLog/Views/Movies/Movie.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW92aWVzXE1vdmllLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/syl31/source/repos/Project2/EntertainLog/Views/Music/EditMusic.cshtml]
+[C:/Users/douga/source/repos/EntertainLog/EntertainLog/Views/Music/EditMusic.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXVzaWNcRWRpdE11c2ljLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/syl31/source/repos/Project2/EntertainLog/Views/Music/Music.cshtml]
+[C:/Users/douga/source/repos/EntertainLog/EntertainLog/Views/Music/Music.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXVzaWNcTXVzaWMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/syl31/source/repos/Project2/EntertainLog/Views/Shared/_Layout.cshtml]
+[C:/Users/douga/source/repos/EntertainLog/EntertainLog/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/syl31/source/repos/Project2/EntertainLog/Views/TVShow/EditTVShow.cshtml]
+[C:/Users/douga/source/repos/EntertainLog/EntertainLog/Views/TVShow/EditTVShow.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVFZTaG93XEVkaXRUVlNob3cuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/syl31/source/repos/Project2/EntertainLog/Views/TVShow/TVShow.cshtml]
+[C:/Users/douga/source/repos/EntertainLog/EntertainLog/Views/TVShow/TVShow.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVFZTaG93XFRWU2hvdy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/syl31/source/repos/Project2/EntertainLog/Views/_ViewImports.cshtml]
+[C:/Users/douga/source/repos/EntertainLog/EntertainLog/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/syl31/source/repos/Project2/EntertainLog/Views/_ViewStart.cshtml]
+[C:/Users/douga/source/repos/EntertainLog/EntertainLog/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
