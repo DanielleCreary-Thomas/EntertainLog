@@ -33,6 +33,12 @@ namespace EntertainLog.Controllers
             return View();
         }
 
+        //SignUp
+        /// <summary>
+        /// Created by: Yuanlong Song
+        /// Displays the SignUp page to enter user info
+        /// </summary>
+        /// <returns> the Login page ask user to login</returns>
         [HttpPost]
         public IActionResult SignUp(User user)
         {

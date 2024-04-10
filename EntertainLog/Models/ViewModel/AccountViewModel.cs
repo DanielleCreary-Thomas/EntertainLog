@@ -1,5 +1,9 @@
 ﻿namespace EntertainLog.Models.ViewModel
 {
+    /// <summary>
+    /// Created By: Danielle Creary-Thomas
+    /// The structure holding the objects required by the Account Page
+    /// </summary>
     public class AccountViewModel
     {
         public IEnumerable<Book> BooksHist { get; set; }
