@@ -7,6 +7,7 @@ namespace EntertainLog.WebControllers
 {
     /// <summary>
     /// Created By: Danielle Creary-Thomas
+    /// Edit By: Yuanlong Song
     /// API for the Movie Entity, Performs CRUD Actions through Http Request Methods
     /// </summary>
     [Route("api/[controller]")]
@@ -27,6 +28,11 @@ namespace EntertainLog.WebControllers
             _entertainLogRepo = entertainLogRepo;
         }
         //Create
+        /// <summary>
+        /// Creates a new Movie and adds it to the Database
+        /// </summary>
+        /// <param name="movie">New movie to be Added</param>
+        /// <returns>The newly created moive in JSON Format</returns>
         [HttpPost]
         public async Task<ActionResult<Movie>> Post([FromBody] Movie movie)
         {
@@ -52,12 +58,21 @@ namespace EntertainLog.WebControllers
             }
         }
         //Watched
+        /// <summary>
+        /// Gives all the Movies in the Database
+        /// </summary>
+        /// <returns>JSON collection of movie</returns>
         [HttpGet]
         public IEnumerable<Movie> Get()
         {
             return _entertainLogRepo.Movies;
         }
 
+        /// <summary>
+        /// Gives the Movie with the matching ID
+        /// </summary>
+        /// <param name="id">ID of the requested Movie</param>
+        /// <returns>The requested Msuic in JSON format</returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<Movie>> Get(long id)
         {
@@ -67,6 +82,11 @@ namespace EntertainLog.WebControllers
         }
 
         //Update
+        /// <summary>
+        /// Updates the given Movie
+        /// </summary>
+        /// <param name="movie">The Movie to be updated</param>
+        /// <returns>The updated movie in JSON format</returns>
         [HttpPut]
         public async Task<ActionResult<Movie>> Put(Movie movie)
         {
@@ -93,6 +113,11 @@ namespace EntertainLog.WebControllers
         }
 
         //Delete
+        /// <summary>
+        /// Deletes the Movie with the matching ID
+        /// </summary>
+        /// <param name="id">The ID of the Movie to be Deleted</param>
+        /// <returns>Status Message and Code for OK</returns>
         [HttpDelete]
         public async Task<ActionResult<Movie>> Delete(long id)
         {
