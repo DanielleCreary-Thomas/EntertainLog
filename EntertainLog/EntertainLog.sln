@@ -5,7 +5,10 @@ VisualStudioVersion = 17.8.34408.163
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntertainLog", "EntertainLog.csproj", "{F86A1CB3-E6EC-41D2-A620-79A8C7846932}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntertainLogTesting", "..\EntertainLogTesting\EntertainLogTesting.csproj", "{DE9D700A-FD24-4E52-BE60-5EEE2AFF0244}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntertainLogTesting", "..\EntertainLogTesting\EntertainLogTesting.csproj", "{DE9D700A-FD24-4E52-BE60-5EEE2AFF0244}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F86A1CB3-E6EC-41D2-A620-79A8C7846932} = {F86A1CB3-E6EC-41D2-A620-79A8C7846932}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

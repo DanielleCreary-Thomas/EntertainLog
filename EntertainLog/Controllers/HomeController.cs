@@ -28,6 +28,8 @@ namespace EntertainLog.Controllers
         {
             _entertainLogRepo = entertainLogRepo;
         }
+
+        public HomeController() { }
         public IActionResult Index()
         {
             return View();
@@ -173,7 +175,7 @@ namespace EntertainLog.Controllers
             }
             else
             {
-                return RedirectToAction("Dashboard", id);
+                return RedirectToAction("Login");
             }
         }
 
@@ -266,7 +268,7 @@ namespace EntertainLog.Controllers
             }
             else
             {
-                return RedirectToAction("Dashboard", id);
+                return RedirectToAction("Login");
             }
         }
 
@@ -355,7 +357,7 @@ namespace EntertainLog.Controllers
             }
             else
             {
-                return RedirectToAction("Dashboard", id);
+                return RedirectToAction("Login");
             }
         }
 
