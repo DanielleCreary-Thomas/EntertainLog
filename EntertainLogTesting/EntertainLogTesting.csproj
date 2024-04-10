@@ -71,4 +71,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\EntertainLog\EntertainLog.csproj" />
+  </ItemGroup>
+
 </Project>
