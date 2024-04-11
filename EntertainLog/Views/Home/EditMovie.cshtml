@@ -15,7 +15,7 @@
         </div>
 
         <h3>Edit @Model.CurrMovie.Title</h3>
-        <form asp-action="Movie" method="post">
+        <form asp-action="EditMovie" method="post">
             <div asp-validation-summary="All"></div>
             <input type="hidden" asp-for="@Model.CurrMovie.MovieID" value="@Model.CurrMovie.MovieID" />
             <br />

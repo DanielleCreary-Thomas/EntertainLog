@@ -15,7 +15,7 @@
         </div>
 
         <h3>Edit @Model.CurrTVShow.Title</h3>
-        <form asp-action="TVShow" method="post">
+        <form asp-action="EditTVShow" method="post">
             <div asp-validation-summary="All"></div>
             <input type="hidden" asp-for="@Model.CurrTVShow.TVShowID" value="@Model.CurrTVShow.TVShowID" />
             <br />

@@ -29,7 +29,7 @@ namespace EntertainLog.Controllers
             _entertainLogRepo = entertainLogRepo;
         }
 
-        public HomeController() { }
+        //public HomeController() { }
         public IActionResult Index()
         {
             return View();
@@ -308,7 +308,7 @@ namespace EntertainLog.Controllers
         public IActionResult EditMusic(long MusicID)
         {
             var currSong = _entertainLogRepo.Musics.Where(m => m.MusicID == MusicID).FirstOrDefault();
-            return View(new MusicViewModel
+            return View("EditMusic",new MusicViewModel
             {
                 CurrMusic = currSong,
                 CurrUser = _entertainLogRepo.Users.FirstOrDefault(u => u.UserID == currSong.UserID)
@@ -322,11 +322,11 @@ namespace EntertainLog.Controllers
         /// <param name="musicModel">A MusicViewModel with the Current Music altered</param>
         /// <returns>The Main Music Page</returns>
         [HttpPost]
-        public IActionResult EditMusic(MusicViewModel musicModel)
+        public IActionResult EditMusic(MusicViewModel mvm)
         {
-            _entertainLogRepo.UpdateMusic(musicModel.CurrMusic);
+            _entertainLogRepo.UpdateMusic(mvm.CurrMusic);
             ModelState.Clear();
-            return RedirectToAction("Music", new { id = musicModel.CurrMusic.MusicID });
+            return RedirectToAction("Music", new { id = mvm.CurrMusic.UserID });
         }
         
         /// <summary>
@@ -415,7 +415,7 @@ namespace EntertainLog.Controllers
         {
             _entertainLogRepo.UpdateTVShow(tvshowModel.CurrTVShow);
             ModelState.Clear();
-            return RedirectToAction("TVShow", new { id = tvshowModel.CurrTVShow.TVShowID });
+            return RedirectToAction("TVShow", new { id = tvshowModel.CurrTVShow.UserID });
         }
 
         /// <summary>
@@ -451,7 +451,7 @@ namespace EntertainLog.Controllers
             }
             else
             {
-                return RedirectToAction("Dashboard", id);
+                return RedirectToAction("Login");
             }
         }
 
@@ -488,7 +488,7 @@ namespace EntertainLog.Controllers
         {
             _entertainLogRepo.UpdateMovie(movieViewModel.CurrMovie);
             ModelState.Clear();
-            return RedirectToAction("Movie", new { id = movieViewModel.CurrMovie.MovieID });
+            return RedirectToAction("Movie", new { id = movieViewModel.CurrMovie.UserID });
         }
 
         /// <summary>

@@ -12,6 +12,10 @@ using EntertainLog.Models.ViewModel;
 
 namespace EntertainLogTesting
 {
+    /// <summary>
+    /// Created By: Danielle Creary-Thomas
+    /// Tests the Movie, TVShow, Book, Music entity actions in the HomeController as well as the Dashboard
+    /// </summary>
     public class HomeControllerTest
     {
 
@@ -640,6 +644,170 @@ namespace EntertainLogTesting
 
             //Assert
             Assert.Equal("TVShow", model.ActionName);
+        }
+
+        //Movie Tests
+        [Fact]
+        public void MovieActionModelBadID()
+        {
+            //Arrange
+            var repoMock = new Mock<IEntertainLogRepo>();
+
+            repoMock.SetupGet(m => m.Users).Returns(new[] { new User { UserID = 123 }, new User { UserID = 456 } }.AsQueryable());
+
+            var controller = new HomeController(repoMock.Object);
+
+            //Act
+            var model = controller.Movie(444) as RedirectToActionResult;
+
+            //Assert
+            Assert.Equal("Login", model.ActionName);
+        }
+
+        [Fact]
+        public void MovieActionModelIsComplete()
+        {
+            //Arrange
+            var repoMock = new Mock<IEntertainLogRepo>();
+
+            repoMock.SetupGet(m => m.Users).Returns(new[] { new User { UserID = 123 }, new User { UserID = 456 } }.AsQueryable());
+            repoMock.SetupGet(m => m.Movies).Returns(
+                new[]
+                {
+                    //matches
+                    new Movie { MovieID = 123, UserID = 123, Queued = true, Favourited = true},
+                    //userid->no match, queued->match, favourited->match, 
+                    new Movie { MovieID = 456, UserID = 456, Queued = true, Favourited = true}
+                }.AsQueryable());
+
+            var controller = new HomeController(repoMock.Object);
+
+            //Act
+            var model = (controller.Movie(123) as ViewResult)?.ViewData.Model as MovieViewModel;
+
+            //Assert
+            Assert.Equal(1, model.Movies.Count());
+
+        }
+
+        [Fact]
+        public void AddMovieActionModelIsComplete()
+        {
+            //Arrange
+            var repoMock = new Mock<IEntertainLogRepo>();
+
+            repoMock.SetupGet(m => m.Users).Returns(new[] { new User { UserID = 123 }, new User { UserID = 456 } }.AsQueryable());
+            repoMock.SetupGet(m => m.Movies).Returns(
+                new[]
+                {
+                    //matches
+                    new Movie { MovieID = 123, UserID = 123, Queued = true, Favourited = true},
+                    //userid->no match, queued->match, favourited->match, 
+                    new Movie { MovieID = 456, UserID = 456, Queued = true, Favourited = true}
+                }.AsQueryable());
+
+            var newMovie = new Movie
+            {
+                Title = "A Dog's Purpose",
+                Director = "Lasse Hallström",
+                Year = "2017",
+                Genre = "Drama",
+                Runtime = "100 min",
+                Watched = true,
+                Rating = 5,
+                Notes = "Motional",
+                UserID = 123
+            };
+
+            var controller = new HomeController(repoMock.Object);
+
+            //Act
+            var result = controller.Movie(newMovie) as ViewResult;
+            var model = (result)?.ViewData.Model as MovieViewModel;
+
+            //Assert
+            Assert.Single(model.Movies);
+            Assert.Equal(repoMock.Object.Users.First(), model.CurrUser);
+        }
+
+        [Fact]
+        public void EditMovieActionModelIsComplete()
+        {
+            //Arrange
+            var repoMock = new Mock<IEntertainLogRepo>();
+
+            repoMock.SetupGet(m => m.Users).Returns(new[] { new User { UserID = 123 }, new User { UserID = 456 } }.AsQueryable());
+            repoMock.SetupGet(m => m.Movies).Returns(
+                new[]
+                {
+                    //matches
+                    new Movie { MovieID = 123, UserID = 123, Queued = true, Favourited = true},
+                    //userid->no match, queued->match, favourited->match, 
+                    new Movie { MovieID = 456, UserID = 456, Queued = true, Favourited = true}
+                }.AsQueryable());
+            var newMovie = new Movie { MovieID = 123, UserID = 123, Queued = true, Favourited = true };
+
+
+            var controller = new HomeController(repoMock.Object);
+
+            //Act
+            var model = (controller.EditMovie(123) as ViewResult)?.ViewData.Model as MovieViewModel;
+
+            //Assert
+            Assert.Equal(newMovie.MovieID, model.CurrMovie.MovieID);
+
+        }
+
+
+        [Fact]
+        public void UpdateEditMovieActionModelIsComplete()
+        {
+            //Arrange
+            var repoMock = new Mock<IEntertainLogRepo>();
+
+            repoMock.SetupGet(m => m.Users).Returns(new[] { new User { UserID = 123 }, new User { UserID = 456 } }.AsQueryable());
+            var bvm = new MovieViewModel
+            {
+                CurrMovie = new Movie
+                {
+                    MovieID = 5,
+                    UserID = 123
+                }
+            };
+
+            var controller = new HomeController(repoMock.Object);
+
+            //Act
+            var model = controller.EditMovie(bvm) as RedirectToActionResult;
+
+            //Assert
+            Assert.Equal("Movie", model.ActionName);
+
+        }
+
+        [Fact]
+        public void DeleteMovieActionModelIsComplete()
+        {
+            //Arrange
+            var repoMock = new Mock<IEntertainLogRepo>();
+
+            repoMock.SetupGet(m => m.Users).Returns(new[] { new User { UserID = 123 }, new User { UserID = 456 } }.AsQueryable());
+            var bvm = new MovieViewModel
+            {
+                CurrMovie = new Movie
+                {
+                    MovieID = 5,
+                    UserID = 123
+                }
+            };
+
+            var controller = new HomeController(repoMock.Object);
+
+            //Act
+            var model = controller.EditMovie(bvm) as RedirectToActionResult;
+
+            //Assert
+            Assert.Equal("Movie", model.ActionName);
         }
     }
 }

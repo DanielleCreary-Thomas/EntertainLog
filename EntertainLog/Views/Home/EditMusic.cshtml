@@ -15,7 +15,7 @@
         </div>
 
         <h3>Edit @Model.CurrMusic.Title</h3>
-        <form asp-action="Music" method="post">
+        <form asp-action="EditMusic" method="post">
             <div asp-validation-summary="All"></div>
             <input type="hidden" asp-for="@Model.CurrMusic.MusicID" value="@Model.CurrMusic.MusicID"/>
             <br />
